@@ -1,82 +1,88 @@
 # Winsights Website
 
-## Setup GitHub Repository
+A modern, single-page website built with Next.js, TypeScript, and Tailwind CSS.
 
-### Quick Setup (Recommended)
+## Features
 
-Run the setup script:
+- **Single Page Design**: All sections on one page with smooth scrolling
+- **Sections**: Home, Who We Are, Success, Testimonials, FAQ, Dashboard
+- **Animations**: Smooth animations using Framer Motion
+- **Carousels**: Testimonials and Trade PnL image carousels
+- **Responsive**: Fully responsive design for all devices
+- **Professional Design**: Sleek, modern UI with custom color scheme
+
+## Tech Stack
+
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- React Slick (Carousels)
+- League Spartan Font
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn
+
+### Installation
+
+1. Install dependencies:
 ```bash
-./setup-github.sh
+npm install
 ```
 
-This will guide you through connecting your repository to GitHub.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-### Manual Setup
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-1. **Create a new repository on GitHub:**
-   - Go to https://github.com/new
-   - Create a new repository (e.g., `winsights_website`)
-   - **Do NOT** initialize with README, .gitignore, or license (we already have these)
+## Project Structure
 
-2. **Connect your local repository to GitHub:**
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/winsights_website.git
-   git branch -M main
-   git push -u origin main
-   ```
+```
+winsights_website/
+├── app/
+│   ├── layout.tsx          # Root layout with font configuration
+│   ├── page.tsx            # Main page component
+│   ├── globals.css         # Global styles
+│   └── slick-custom.css    # Custom carousel styles
+├── components/
+│   ├── Navigation.tsx      # Top navigation bar
+│   ├── Hero.tsx            # Hero section
+│   ├── WhoWeAre.tsx        # About section
+│   ├── Success.tsx         # Success metrics section
+│   ├── Testimonials.tsx    # Testimonials carousel
+│   ├── TradePnL.tsx        # Trade PnL carousel
+│   ├── FAQ.tsx             # FAQ accordion
+│   └── Dashboard.tsx       # Dashboard section
+├── lib/
+│   └── content.ts          # Content data
+└── public/
+    └── images/             # Images (add your trade PnL images here)
+```
 
-   Replace `YOUR_USERNAME` with your actual GitHub username.
+## Color Scheme
+
+- Primary Blue: `rgb(0, 20, 113)`
+- Dark Blue: `rgb(14, 26, 55)`
+- White: `#ffffff`
+- Light Grey: `#e5e7eb`
+- Black: `#000000`
+
+## Customization
+
+- Update content in `lib/content.ts`
+- Modify styles in `app/globals.css` and component files
+- Add images to `public/images/` for Trade PnL carousel
 
 ## Auto-Save to GitHub
 
-This repository includes an auto-save script that automatically commits and pushes changes to GitHub.
+This repository is configured to auto-save changes to GitHub. The autosave script runs in the background and commits/pushes changes automatically.
 
-### Setup
+## License
 
-1. **Make the script executable:**
-   ```bash
-   chmod +x autosave.sh
-   ```
-
-2. **Install fswatch (recommended for macOS):**
-   ```bash
-   brew install fswatch
-   ```
-
-3. **Run the auto-save script:**
-   ```bash
-   ./autosave.sh
-   ```
-
-The script will:
-- Watch for file changes in the repository
-- Automatically commit changes with a timestamp
-- Push changes to GitHub
-
-### Running in Background
-
-To run the auto-save script in the background:
-
-```bash
-nohup ./autosave.sh > autosave.log 2>&1 &
-```
-
-To stop it:
-```bash
-pkill -f autosave.sh
-```
-
-### Alternative: Using Git Hooks (Manual Trigger)
-
-If you prefer manual control, you can also use git hooks. The auto-save script is more convenient for continuous syncing.
-
-## First Commit
-
-After setting up the GitHub remote, make your first commit:
-
-```bash
-git add .
-git commit -m "Initial commit"
-git push -u origin main
-```
-
+See LICENSE file for details.
