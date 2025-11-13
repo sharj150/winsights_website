@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import { content } from "@/lib/content";
-import Image from "next/image";
 
 export default function TradePnL() {
   const settings = {
