@@ -2,6 +2,17 @@
 
 ## Setup GitHub Repository
 
+### Quick Setup (Recommended)
+
+Run the setup script:
+```bash
+./setup-github.sh
+```
+
+This will guide you through connecting your repository to GitHub.
+
+### Manual Setup
+
 1. **Create a new repository on GitHub:**
    - Go to https://github.com/new
    - Create a new repository (e.g., `winsights_website`)
