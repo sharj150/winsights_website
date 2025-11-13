@@ -42,8 +42,8 @@ export default function Navigation() {
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => scrollToSection("home")}
           >
-            <div className="w-10 h-10 bg-primary-blue rounded flex items-center justify-center">
-              <span className="text-white text-xl font-bold">w</span>
+            <div className="w-12 h-12 bg-primary-blue rounded flex items-center justify-center">
+              <span className="text-white text-2xl font-bold">[w]</span>
             </div>
             <span className="text-2xl font-bold text-primary-blue">Winsights</span>
           </motion.div>
