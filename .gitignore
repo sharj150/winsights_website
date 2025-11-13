@@ -23,6 +23,8 @@ dist/
 build/
 *.egg-info/
 .cache/
+.next/
+out/
 
 # Environment variables
 .env
@@ -40,3 +42,5 @@ yarn-error.log*
 .DS_Store
 Thumbs.db
 
+# Testing
+coverage/
