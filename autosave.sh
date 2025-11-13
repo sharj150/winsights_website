@@ -40,10 +40,20 @@ commit_and_push() {
     echo ""
 }
 
-# Check if fswatch is installed (macOS)
+# Find fswatch in common locations
+FSWATCH_CMD=""
 if command -v fswatch &> /dev/null; then
+    FSWATCH_CMD="fswatch"
+elif [ -f /opt/homebrew/bin/fswatch ]; then
+    FSWATCH_CMD="/opt/homebrew/bin/fswatch"
+elif [ -f /usr/local/bin/fswatch ]; then
+    FSWATCH_CMD="/usr/local/bin/fswatch"
+fi
+
+# Check if fswatch is installed (macOS)
+if [ -n "$FSWATCH_CMD" ]; then
     echo "Using fswatch to monitor changes..."
-    fswatch -o . | while read f; do
+    $FSWATCH_CMD -o . | while read f; do
         commit_and_push
     done
 # Check if inotifywait is installed (Linux)
