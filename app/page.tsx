@@ -1,23 +1,29 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import WhoWeAre from "@/components/WhoWeAre";
+import HowItWorks from "@/components/HowItWorks";
+import WhatWeDo from "@/components/WhatWeDo";
+import TradingSignals from "@/components/TradingSignals";
 import Success from "@/components/Success";
 import Testimonials from "@/components/Testimonials";
-import TradePnL from "@/components/TradePnL";
 import FAQ from "@/components/FAQ";
-import Dashboard from "@/components/Dashboard";
+import Pricing from "@/components/Pricing";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative">
+    <main className="relative" role="main">
       <Navigation />
       <Hero />
       <WhoWeAre />
+      <TradingSignals />
+      <HowItWorks />
+      <WhatWeDo />
       <Success />
-      <TradePnL />
       <Testimonials />
       <FAQ />
-      <Dashboard />
+      <Pricing />
+      <Footer />
     </main>
   );
 }

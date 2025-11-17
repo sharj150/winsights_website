@@ -1,0 +1,19 @@
+{
+  "name": "WINSIGHTS - The number 1 UK trading group",
+  "short_name": "WINSIGHTS",
+  "description": "The number 1 UK trading group. Join our flourishing community making thousands daily.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#001470",
+  "theme_color": "#001470",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

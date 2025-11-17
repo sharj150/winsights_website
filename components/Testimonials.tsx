@@ -28,7 +28,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-24 bg-white"
+      className="py-24 bg-gradient-to-br from-neutral-light-grey via-blue-50 to-neutral-light-grey"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -42,7 +42,7 @@ export default function Testimonials() {
             Testimonials
           </h2>
           <p className="text-lg text-primary-dark max-w-2xl mx-auto">
-            See what our community of traders has to say about Win Insights
+            See what our community of traders has to say about WINSIGHTS
           </p>
         </motion.div>
 
@@ -54,7 +54,7 @@ export default function Testimonials() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="bg-neutral-light-grey p-8 md:p-12 rounded-xl"
+                  className="bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-xl h-[500px] flex flex-col border border-primary-blue/10 shadow-lg"
                 >
                   <div className="flex mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -68,20 +68,40 @@ export default function Testimonials() {
                       </svg>
                     ))}
                   </div>
-                  <p className="text-lg text-primary-dark mb-6 leading-relaxed italic">
+                  <p className="text-lg text-primary-dark mb-6 leading-relaxed italic flex-grow overflow-y-auto">
                     "{testimonial.content}"
                   </p>
-                  <div>
+                  <div className="mt-auto">
                     <p className="font-semibold text-primary-blue text-lg">
                       {testimonial.name}
+                      {testimonial.age && `, ${testimonial.age}`}
                     </p>
-                    <p className="text-primary-dark">{testimonial.role}</p>
                   </div>
                 </motion.div>
               </div>
             ))}
           </Slider>
         </div>
+
+        {/* Join Now Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <motion.a
+            href={content.hero.subscriptionUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block bg-primary-blue text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg"
+          >
+            Join Now
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

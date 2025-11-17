@@ -14,7 +14,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="py-24 bg-white"
+      className="py-24 bg-gradient-to-br from-neutral-light-grey via-blue-50 to-neutral-light-grey"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -28,7 +28,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-primary-dark max-w-2xl mx-auto">
-            Find answers to common questions about Win Insights
+            Find answers to common questions about WINSIGHTS
           </p>
         </motion.div>
 
@@ -40,11 +40,11 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="border border-neutral-light-grey rounded-xl overflow-hidden"
+              className="border border-primary-blue/20 rounded-xl overflow-hidden bg-white/60 backdrop-blur-sm"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between bg-neutral-light-grey hover:bg-opacity-80 transition-colors"
+                className="w-full px-6 py-5 text-left flex items-center justify-between bg-white/40 hover:bg-white/60 transition-colors"
               >
                 <span className="font-semibold text-primary-dark text-lg">
                   {item.question}
@@ -83,6 +83,26 @@ export default function FAQ() {
             </motion.div>
           ))}
         </div>
+
+        {/* Join Now Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-center mt-12"
+        >
+          <motion.a
+            href={content.hero.subscriptionUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block bg-primary-blue text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg"
+          >
+            Join Now
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
