@@ -14,16 +14,16 @@ function AnimatedCounter({ value, label }: { value: string; label: string }) {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    if (isInView) {
-      const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
-      
-      // On mobile, set value instantly (no animation)
-      if (isMobile) {
-        setCount(numericValue);
-        return;
-      }
+    const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
+    
+    // On mobile, set value instantly (no animation, no waiting for isInView)
+    if (isMobile) {
+      setCount(numericValue);
+      return;
+    }
 
-      // On desktop, animate the counter
+    // On desktop, animate the counter when in view
+    if (isInView) {
       const suffix = value.replace(/[0-9.]/g, "");
       const duration = 2000;
       const steps = 60;
@@ -62,12 +62,12 @@ function AnimatedCounter({ value, label }: { value: string; label: string }) {
     ? value
     : `${count.toLocaleString()}+`;
 
-  // On mobile, use simple div without animations
+  // On mobile, use simple div without animations - always show the value
   if (isMobile) {
     return (
       <div ref={ref} className="text-center">
         <div className="text-5xl md:text-6xl font-bold text-white mb-4">
-          {isInView ? displayValue : "0"}
+          {displayValue}
         </div>
         <div className="text-lg text-neutral-light-grey font-medium">{label}</div>
       </div>
