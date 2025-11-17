@@ -3,8 +3,6 @@ const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true, // Required for static export
-    domains: ['www.winsights.info'],
-    formats: ['image/avif', 'image/webp'],
   },
   // compress: true, // Not needed for static export - handled by hosting provider
   poweredByHeader: false,
