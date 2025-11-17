@@ -2,25 +2,28 @@
 
 import { motion } from "framer-motion";
 import { content } from "@/lib/content";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function WhoWeAre() {
+  const isMobile = useIsMobile();
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: isMobile ? 0 : 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, ...(isMobile ? {} : { y: 30 }) },
     visible: {
       opacity: 1,
-      y: 0,
+      ...(isMobile ? {} : { y: 0 }),
       transition: {
-        duration: 0.6,
+        duration: isMobile ? 0.3 : 0.6,
       },
     },
   };
@@ -32,10 +35,10 @@ export default function WhoWeAre() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-primary-blue mb-6">
@@ -44,20 +47,14 @@ export default function WhoWeAre() {
           <p className="text-lg text-primary-dark max-w-4xl mx-auto leading-relaxed mb-8">
             {content.whoWeAre.mainContent}
           </p>
-          <motion.a
+          <a
             href={content.hero.subscriptionUrl}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             className="inline-block bg-primary-blue text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg"
           >
             Join Now
-          </motion.a>
+          </a>
         </motion.div>
 
         <motion.div
@@ -109,7 +106,7 @@ export default function WhoWeAre() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ y: -8, scale: 1.03 }}
+                whileHover={isMobile ? undefined : { y: -8, scale: 1.03 }}
                 className="bg-gradient-to-br from-white to-blue-50/50 backdrop-blur-sm p-8 rounded-2xl hover:shadow-2xl transition-all duration-300 border-2 border-primary-blue/20 hover:border-primary-blue/40 text-center flex flex-col items-center"
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-primary-blue to-primary-dark rounded-2xl flex items-center justify-center mb-6 shadow-lg">
