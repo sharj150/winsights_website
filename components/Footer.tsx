@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Footer() {
   const scrollToSection = (id: string) => {
@@ -23,14 +24,17 @@ export default function Footer() {
               className="mb-4 p-2 rounded inline-block"
               style={{ backgroundColor: '#001570' }}
             >
-              <img 
+              <Image 
                 src="/winsights_logo.svg" 
                 alt="Winsights Logo" 
+                width={40}
+                height={40}
                 className="h-10 w-auto"
+                unoptimized
               />
             </motion.div>
             <p className="text-neutral-light-grey text-sm mb-6">
-              Join our flourishing community which is making thousands daily, catered for all skill levels! We believe in learning and earning, we want you to learn, and then understand why you're earning!
+              Join our flourishing community which is making thousands daily, catered for all skill levels! We believe in learning and earning, we want you to learn, and then understand why you&apos;re earning!
             </p>
             {/* Social Media Icons */}
             <div className="flex items-center space-x-4">

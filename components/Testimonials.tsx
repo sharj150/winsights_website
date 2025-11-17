@@ -69,7 +69,7 @@ export default function Testimonials() {
                     ))}
                   </div>
                   <p className="text-lg text-primary-dark mb-6 leading-relaxed italic flex-grow overflow-y-auto">
-                    "{testimonial.content}"
+                    &quot;{testimonial.content}&quot;
                   </p>
                   <div className="mt-auto">
                     <p className="font-semibold text-primary-blue text-lg">

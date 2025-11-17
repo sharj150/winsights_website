@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -82,12 +83,13 @@ export default function Navigation() {
             onClick={() => scrollToSection("home")}
             aria-label="Navigate to home"
           >
-            <img 
+            <Image 
               src="/winsights_logo.svg" 
               alt="Winsights Logo" 
+              width={48}
+              height={48}
               className="h-12 w-auto"
-              width="48"
-              height="48"
+              unoptimized
             />
           </motion.button>
 

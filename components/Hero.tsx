@@ -213,7 +213,7 @@ export default function Hero() {
               >
                 <div className="p-3 sm:p-4 h-full flex flex-col justify-between bg-white/5">
                   <p className="text-white text-[10px] sm:text-xs md:text-sm line-clamp-3 sm:line-clamp-4 italic mb-2">
-                    "{item.content.substring(0, 80)}..."
+                    &quot;{item.content.substring(0, 80)}...&quot;
                   </p>
                   <div className="flex items-center gap-2">
                     <div className="flex">
