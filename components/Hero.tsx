@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { content } from "@/lib/content";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function Hero() {
+  const isMobile = useIsMobile();
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -138,106 +141,166 @@ export default function Hero() {
           </div>
 
         {/* Scrolling Success Images Banner - Mobile Optimized */}
-        <motion.div
-          initial={{ opacity: 0.65 }}
-          animate={{ opacity: 0.65 }}
-          transition={{ delay: 0, duration: 0 }}
-          className="mt-6 md:mt-8 lg:mt-10 w-full overflow-hidden cursor-grab active:cursor-grabbing"
-        >
+        {isMobile ? (
+          <div className="mt-6 md:mt-8 lg:mt-10 w-full overflow-hidden">
+            <div className="flex gap-2 md:gap-4 overflow-x-auto hide-scrollbar">
+              {content.tradePnL.slice(0, 10).map((item, index) => (
+                <div
+                  key={`image-${item.id}-${index}`}
+                  className="flex-shrink-0 w-40 h-28 sm:w-48 sm:h-32 md:w-56 md:h-36 lg:w-72 lg:h-48 rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg flex items-center justify-center"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    width={288}
+                    height={192}
+                    className="w-full h-full object-contain p-1"
+                    loading="lazy"
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
           <motion.div
-            className="flex gap-2 md:gap-4"
-            drag="x"
-            dragConstraints={{ left: -Infinity, right: 0 }}
-            dragElastic={0.2}
-            animate={{
-              x: [0, -(content.tradePnL.length * 280)],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 78 * (content.tradePnL.length / content.testimonials.length),
-                ease: "linear",
-              },
-            }}
-            style={{ width: "max-content" }}
+            initial={{ opacity: 0.65 }}
+            animate={{ opacity: 0.65 }}
+            transition={{ delay: 0, duration: 0 }}
+            className="mt-6 md:mt-8 lg:mt-10 w-full overflow-hidden cursor-grab active:cursor-grabbing"
           >
-            {[...content.tradePnL, ...content.tradePnL, ...content.tradePnL].map((item, index) => (
-              <div
-                key={`image-${item.id}-${index}`}
-                className="flex-shrink-0 w-40 h-28 sm:w-48 sm:h-32 md:w-56 md:h-36 lg:w-72 lg:h-48 rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg pointer-events-none flex items-center justify-center"
-              >
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  width={288}
-                  height={192}
-                  className="w-full h-full object-contain p-1"
-                  loading="lazy"
-                  unoptimized
-                />
-              </div>
-            ))}
+            <motion.div
+              className="flex gap-2 md:gap-4"
+              drag="x"
+              dragConstraints={{ left: -Infinity, right: 0 }}
+              dragElastic={0.2}
+              animate={{
+                x: [0, -(content.tradePnL.length * 280)],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 78 * (content.tradePnL.length / content.testimonials.length),
+                  ease: "linear",
+                },
+              }}
+              style={{ width: "max-content" }}
+            >
+              {[...content.tradePnL, ...content.tradePnL, ...content.tradePnL].map((item, index) => (
+                <div
+                  key={`image-${item.id}-${index}`}
+                  className="flex-shrink-0 w-40 h-28 sm:w-48 sm:h-32 md:w-56 md:h-36 lg:w-72 lg:h-48 rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg pointer-events-none flex items-center justify-center"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    width={288}
+                    height={192}
+                    className="w-full h-full object-contain p-1"
+                    loading="lazy"
+                    unoptimized
+                  />
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
-        </motion.div>
+        )}
 
         {/* Scrolling Testimonials Banner - Mobile Optimized */}
-        <motion.div
-          initial={{ opacity: 0.65 }}
-          animate={{ opacity: 0.65 }}
-          transition={{ delay: 0, duration: 0 }}
-          className="mt-4 md:mt-6 mb-20 md:mb-30 lg:mb-40 w-full overflow-hidden cursor-grab active:cursor-grabbing"
-        >
-          <motion.div
-            className="flex gap-4"
-            drag="x"
-            dragConstraints={{ left: -Infinity, right: 0 }}
-            dragElastic={0.2}
-            animate={{
-              x: [0, -(content.testimonials.length * 280)],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 78,
-                ease: "linear",
-              },
-            }}
-            style={{ width: "max-content" }}
-          >
-            {[...content.testimonials, ...content.testimonials, ...content.testimonials].map((item, index) => (
-              <div
-                key={`testimonial-${index}`}
-                className="flex-shrink-0 w-40 h-32 sm:w-48 sm:h-36 md:w-56 md:h-36 lg:w-72 lg:h-48 rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg pointer-events-none"
-              >
-                <div className="p-3 sm:p-4 h-full flex flex-col justify-between bg-white/5">
-                  <p className="text-white text-[10px] sm:text-xs md:text-sm line-clamp-3 sm:line-clamp-4 italic mb-2">
-                    &quot;{item.content.substring(0, 80)}...&quot;
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[...Array(item.rating)].map((_, i) => (
-                        <svg
-                          key={i}
-                          className="w-3 h-3 text-yellow-400"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                    <p className="text-white/80 text-xs font-semibold">
-                      {item.name}
-                      {item.age && `, ${item.age}`}
+        {isMobile ? (
+          <div className="mt-4 md:mt-6 mb-20 md:mb-30 lg:mb-40 w-full overflow-hidden">
+            <div className="flex gap-4 overflow-x-auto hide-scrollbar">
+              {content.testimonials.slice(0, 8).map((item, index) => (
+                <div
+                  key={`testimonial-${index}`}
+                  className="flex-shrink-0 w-40 h-32 sm:w-48 sm:h-36 md:w-56 md:h-36 lg:w-72 lg:h-48 rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg"
+                >
+                  <div className="p-3 sm:p-4 h-full flex flex-col justify-between bg-white/5">
+                    <p className="text-white text-[10px] sm:text-xs md:text-sm line-clamp-3 sm:line-clamp-4 italic mb-2">
+                      &quot;{item.content.substring(0, 80)}...&quot;
                     </p>
+                    <div className="flex items-center gap-2">
+                      <div className="flex">
+                        {[...Array(item.rating)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-3 h-3 text-yellow-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <p className="text-white/80 text-xs font-semibold">
+                        {item.name}
+                        {item.age && `, ${item.age}`}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0.65 }}
+            animate={{ opacity: 0.65 }}
+            transition={{ delay: 0, duration: 0 }}
+            className="mt-4 md:mt-6 mb-20 md:mb-30 lg:mb-40 w-full overflow-hidden cursor-grab active:cursor-grabbing"
+          >
+            <motion.div
+              className="flex gap-4"
+              drag="x"
+              dragConstraints={{ left: -Infinity, right: 0 }}
+              dragElastic={0.2}
+              animate={{
+                x: [0, -(content.testimonials.length * 280)],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 78,
+                  ease: "linear",
+                },
+              }}
+              style={{ width: "max-content" }}
+            >
+              {[...content.testimonials, ...content.testimonials, ...content.testimonials].map((item, index) => (
+                <div
+                  key={`testimonial-${index}`}
+                  className="flex-shrink-0 w-40 h-32 sm:w-48 sm:h-36 md:w-56 md:h-36 lg:w-72 lg:h-48 rounded-lg overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg pointer-events-none"
+                >
+                  <div className="p-3 sm:p-4 h-full flex flex-col justify-between bg-white/5">
+                    <p className="text-white text-[10px] sm:text-xs md:text-sm line-clamp-3 sm:line-clamp-4 italic mb-2">
+                      &quot;{item.content.substring(0, 80)}...&quot;
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <div className="flex">
+                        {[...Array(item.rating)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-3 h-3 text-yellow-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                      <p className="text-white/80 text-xs font-semibold">
+                        {item.name}
+                        {item.age && `, ${item.age}`}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
-        </motion.div>
+        )}
       </div>
 
       {/* Scroll Indicator */}
