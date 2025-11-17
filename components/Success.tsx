@@ -11,10 +11,19 @@ function AnimatedCounter({ value, label }: { value: string; label: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isInView) {
       const numericValue = parseFloat(value.replace(/[^0-9.]/g, ""));
+      
+      // On mobile, set value instantly (no animation)
+      if (isMobile) {
+        setCount(numericValue);
+        return;
+      }
+
+      // On desktop, animate the counter
       const suffix = value.replace(/[0-9.]/g, "");
       const duration = 2000;
       const steps = 60;
@@ -33,7 +42,7 @@ function AnimatedCounter({ value, label }: { value: string; label: string }) {
 
       return () => clearInterval(timer);
     }
-  }, [isInView, value]);
+  }, [isInView, value, isMobile]);
 
   const displayValue = value.includes("%")
     ? value.includes(".")
@@ -52,6 +61,18 @@ function AnimatedCounter({ value, label }: { value: string; label: string }) {
     : value.includes("/")
     ? value
     : `${count.toLocaleString()}+`;
+
+  // On mobile, use simple div without animations
+  if (isMobile) {
+    return (
+      <div ref={ref} className="text-center">
+        <div className="text-5xl md:text-6xl font-bold text-white mb-4">
+          {isInView ? displayValue : "0"}
+        </div>
+        <div className="text-lg text-neutral-light-grey font-medium">{label}</div>
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -92,48 +113,82 @@ export default function Success() {
       className="py-24 bg-gradient-to-br from-primary-dark to-primary-blue"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {content.success.title}
-          </h2>
-          <p className="text-lg text-neutral-light-grey max-w-2xl mx-auto mb-12">
-            Real results from our trading community
-          </p>
-        </motion.div>
+        {isMobile ? (
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              {content.success.title}
+            </h2>
+            <p className="text-lg text-neutral-light-grey max-w-2xl mx-auto mb-12">
+              Real results from our trading community
+            </p>
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              {content.success.title}
+            </h2>
+            <p className="text-lg text-neutral-light-grey max-w-2xl mx-auto mb-12">
+              Real results from our trading community
+            </p>
+          </motion.div>
+        )}
 
         {/* Trade PnL Carousel */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="max-w-5xl mx-auto mb-16"
-        >
-          <Slider {...carouselSettings}>
-            {content.tradePnL.map((item) => (
-              <div key={item.id} className="px-4">
-                <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-2xl overflow-hidden border border-white border-opacity-20">
-                  <div className="relative w-full h-[400px] md:h-[600px] bg-white bg-opacity-5">
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      className="object-contain p-4"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                      unoptimized
-                    />
+        {isMobile ? (
+          <div className="max-w-5xl mx-auto mb-16">
+            <Slider {...carouselSettings}>
+              {content.tradePnL.map((item) => (
+                <div key={item.id} className="px-4">
+                  <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-2xl overflow-hidden border border-white border-opacity-20">
+                    <div className="relative w-full h-[400px] md:h-[600px] bg-white bg-opacity-5">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        fill
+                        className="object-contain p-4"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                        unoptimized
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </Slider>
-        </motion.div>
+              ))}
+            </Slider>
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="max-w-5xl mx-auto mb-16"
+          >
+            <Slider {...carouselSettings}>
+              {content.tradePnL.map((item) => (
+                <div key={item.id} className="px-4">
+                  <div className="bg-white bg-opacity-10 backdrop-blur-lg rounded-xl shadow-2xl overflow-hidden border border-white border-opacity-20">
+                    <div className="relative w-full h-[400px] md:h-[600px] bg-white bg-opacity-5">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        fill
+                        className="object-contain p-4"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                        unoptimized
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </motion.div>
+        )}
 
         {/* Success Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
@@ -147,22 +202,35 @@ export default function Success() {
         </div>
 
         {/* Join Now Button */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="text-center"
-        >
-          <a
-            href={content.hero.subscriptionUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-white text-primary-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-neutral-light-grey transition-all duration-300 shadow-xl"
+        {isMobile ? (
+          <div className="text-center">
+            <a
+              href={content.hero.subscriptionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white text-primary-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-neutral-light-grey transition-all duration-300 shadow-xl"
+            >
+              Join Now
+            </a>
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="text-center"
           >
-            Join Now
-          </a>
-        </motion.div>
+            <a
+              href={content.hero.subscriptionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white text-primary-blue px-8 py-3 rounded-lg text-lg font-semibold hover:bg-neutral-light-grey transition-all duration-300 shadow-xl"
+            >
+              Join Now
+            </a>
+          </motion.div>
+        )}
       </div>
     </section>
   );

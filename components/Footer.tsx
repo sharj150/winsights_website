@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function Footer() {
+  const isMobile = useIsMobile();
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -17,22 +19,38 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Company Information */}
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-4 p-2 rounded inline-block"
-              style={{ backgroundColor: '#001570' }}
-            >
-              <Image 
-                src="/winsights_logo.svg" 
-                alt="Winsights Logo" 
-                width={40}
-                height={40}
-                className="h-10 w-auto"
-                unoptimized
-              />
-            </motion.div>
+            {isMobile ? (
+              <div
+                className="mb-4 p-2 rounded inline-block"
+                style={{ backgroundColor: '#001570' }}
+              >
+                <Image 
+                  src="/winsights_logo.svg" 
+                  alt="Winsights Logo" 
+                  width={40}
+                  height={40}
+                  className="h-10 w-auto"
+                  unoptimized
+                />
+              </div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-4 p-2 rounded inline-block"
+                style={{ backgroundColor: '#001570' }}
+              >
+                <Image 
+                  src="/winsights_logo.svg" 
+                  alt="Winsights Logo" 
+                  width={40}
+                  height={40}
+                  className="h-10 w-auto"
+                  unoptimized
+                />
+              </motion.div>
+            )}
             <p className="text-neutral-light-grey text-sm mb-6">
               Join our flourishing community which is making thousands daily, catered for all skill levels! We believe in learning and earning, we want you to learn, and then understand why you&apos;re earning!
             </p>
