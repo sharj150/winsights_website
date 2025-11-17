@@ -6,7 +6,7 @@ const nextConfig = {
     domains: ['www.winsights.info'],
     formats: ['image/avif', 'image/webp'],
   },
-  compress: true,
+  // compress: true, // Not needed for static export - handled by hosting provider
   poweredByHeader: false,
   reactStrictMode: true,
   swcMinify: true,
