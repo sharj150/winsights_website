@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,11 +62,16 @@ export default function Navigation() {
     }, 100);
   };
 
+  const NavComponent = isMobile ? "nav" : motion.nav;
+  const navProps = isMobile ? {} : {
+    initial: { y: -100 },
+    animate: { y: 0 },
+    transition: { duration: 0.5 }
+  };
+
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <NavComponent
+      {...navProps}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white shadow-lg"
@@ -74,24 +81,42 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.button
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="cursor-pointer p-2 rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
-            style={{ backgroundColor: '#001570' }}
-            onClick={() => scrollToSection("home")}
-            aria-label="Navigate to home"
-          >
-            <Image 
-              src="/winsights_logo.svg" 
-              alt="Winsights Logo" 
-              width={48}
-              height={48}
-              className="h-12 w-auto"
-              unoptimized
-            />
-          </motion.button>
+          {isMobile ? (
+            <button
+              className="cursor-pointer p-2 rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
+              style={{ backgroundColor: '#001570' }}
+              onClick={() => scrollToSection("home")}
+              aria-label="Navigate to home"
+            >
+              <Image 
+                src="/winsights_logo.svg" 
+                alt="Winsights Logo" 
+                width={48}
+                height={48}
+                className="h-12 w-auto"
+                unoptimized
+              />
+            </button>
+          ) : (
+            <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="cursor-pointer p-2 rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
+              style={{ backgroundColor: '#001570' }}
+              onClick={() => scrollToSection("home")}
+              aria-label="Navigate to home"
+            >
+              <Image 
+                src="/winsights_logo.svg" 
+                alt="Winsights Logo" 
+                width={48}
+                height={48}
+                className="h-12 w-auto"
+                unoptimized
+              />
+            </motion.button>
+          )}
 
           {/* Navigation Links - Centered */}
           <div className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
@@ -159,61 +184,75 @@ export default function Navigation() {
           {/* Right side - Dashboard Button (Desktop) & Hamburger (Mobile) */}
           <div className="flex items-center gap-4">
             {/* Dashboard Button - Desktop Only */}
-            <motion.a
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ 
-                opacity: 1, 
-                x: 0,
-                scale: [1, 1.05, 1],
-              }}
-              transition={{ 
-                opacity: { duration: 0.8, delay: 0.3 },
-                x: { duration: 0.8, delay: 0.3 },
-                scale: {
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  delay: 1,
-                }
-              }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              href="https://billing.stripe.com/p/login/28o3dh510dpOaiI7ss"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Access Dashboard"
-              className="hidden md:flex bg-primary-blue text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 relative overflow-hidden min-h-[44px] min-w-[100px] items-center justify-center"
-            >
-              <motion.span
-                animate={{
-                  x: [0, 3, 0],
-                }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  delay: 1.5,
-                }}
-                className="relative z-10"
+            {isMobile ? (
+              <a
+                href="https://billing.stripe.com/p/login/28o3dh510dpOaiI7ss"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Access Dashboard"
+                className="hidden md:flex bg-primary-blue text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 relative overflow-hidden min-h-[44px] min-w-[100px] items-center justify-center"
               >
-                Dashboard
-              </motion.span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                style={{
-                  transform: "skewX(-20deg)",
+                <span className="relative z-10">
+                  Dashboard
+                </span>
+              </a>
+            ) : (
+              <motion.a
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ 
+                  opacity: 1, 
+                  x: 0,
+                  scale: [1, 1.05, 1],
                 }}
-                animate={{
-                  x: ["-200%", "200%"],
+                transition={{ 
+                  opacity: { duration: 0.8, delay: 0.3 },
+                  x: { duration: 0.8, delay: 0.3 },
+                  scale: {
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: 1,
+                  }
                 }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 0.5,
-                  ease: "easeInOut",
-                }}
-              />
-            </motion.a>
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://billing.stripe.com/p/login/28o3dh510dpOaiI7ss"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Access Dashboard"
+                className="hidden md:flex bg-primary-blue text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 relative overflow-hidden min-h-[44px] min-w-[100px] items-center justify-center"
+              >
+                <motion.span
+                  animate={{
+                    x: [0, 3, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    delay: 1.5,
+                  }}
+                  className="relative z-10"
+                >
+                  Dashboard
+                </motion.span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                  style={{
+                    transform: "skewX(-20deg)",
+                  }}
+                  animate={{
+                    x: ["-200%", "200%"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatDelay: 0.5,
+                    ease: "easeInOut",
+                  }}
+                />
+              </motion.a>
+            )}
 
             {/* Hamburger Menu Button - Mobile Only */}
             <button
@@ -348,7 +387,7 @@ export default function Navigation() {
           </div>
         </motion.div>
       </div>
-    </motion.nav>
+    </NavComponent>
   );
 }
 

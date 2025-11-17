@@ -31,103 +31,167 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 pt-20 md:pt-32 lg:pt-40 pb-6 md:pb-8">
         <div className="text-center relative w-full overflow-x-hidden">
           {/* £30 Badge - Creative floating badge - Mobile Optimized */}
-          <motion.div
-            initial={{ opacity: 1, scale: 1, rotate: 0 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0 }}
-            className="absolute top-4 md:top-6 lg:top-8 right-2 md:right-4 lg:right-8 xl:right-16"
-          >
-            <motion.div
-              animate={{
-                rotate: [0, 5, -5, 0],
-                y: [0, -5, 0],
-              }}
-              transition={{
-                rotate: { duration: 3, repeat: Infinity, repeatType: "reverse" },
-                y: { duration: 2, repeat: Infinity, repeatType: "reverse" },
-              }}
-              className="relative"
-            >
-              <div className="bg-primary-dark/80 backdrop-blur-sm border border-neutral-light-grey/30 px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-lg shadow-lg">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-white text-lg md:text-xl lg:text-2xl font-bold">
-                    £30
-                  </span>
-                  <span className="text-white/80 text-xs md:text-sm lg:text-base font-medium">
-                    /month
-                  </span>
+          {isMobile ? (
+            <div className="absolute top-4 md:top-6 lg:top-8 right-2 md:right-4 lg:right-8 xl:right-16">
+              <div className="relative">
+                <div className="bg-primary-dark/80 backdrop-blur-sm border border-neutral-light-grey/30 px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-lg shadow-lg">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-white text-lg md:text-xl lg:text-2xl font-bold">
+                      £30
+                    </span>
+                    <span className="text-white/80 text-xs md:text-sm lg:text-base font-medium">
+                      /month
+                    </span>
+                  </div>
                 </div>
               </div>
+            </div>
+          ) : (
+            <motion.div
+              initial={{ opacity: 1, scale: 1, rotate: 0 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0 }}
+              className="absolute top-4 md:top-6 lg:top-8 right-2 md:right-4 lg:right-8 xl:right-16"
+            >
+              <motion.div
+                animate={{
+                  rotate: [0, 5, -5, 0],
+                  y: [0, -5, 0],
+                }}
+                transition={{
+                  rotate: { duration: 3, repeat: Infinity, repeatType: "reverse" },
+                  y: { duration: 2, repeat: Infinity, repeatType: "reverse" },
+                }}
+                className="relative"
+              >
+                <div className="bg-primary-dark/80 backdrop-blur-sm border border-neutral-light-grey/30 px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-lg shadow-lg">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-white text-lg md:text-xl lg:text-2xl font-bold">
+                      £30
+                    </span>
+                    <span className="text-white/80 text-xs md:text-sm lg:text-base font-medium">
+                      /month
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          )}
 
           {/* Mobile Only: JUST £30 A MONTH! */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="block sm:hidden mb-4"
-          >
+          {isMobile ? (
+            <div className="block sm:hidden mb-4">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-blue/90 to-primary-dark/90 backdrop-blur-sm border-2 border-white/30 rounded-full px-4 py-2.5 shadow-lg">
+                <svg
+                  className="w-5 h-5 text-green-400 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span className="text-base font-bold text-white uppercase tracking-wide">
+                  £30 A MONTH
+                </span>
+              </div>
+            </div>
+          ) : (
             <motion.div
-              initial={{ scale: 1 }}
-              animate={{ scale: [1, 1.02, 1] }}
-              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-blue/90 to-primary-dark/90 backdrop-blur-sm border-2 border-white/30 rounded-full px-4 py-2.5 shadow-lg"
+              initial={{ opacity: 0, scale: 0.9, y: -10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="block sm:hidden mb-4"
             >
-              {/* Verified Checkmark */}
-              <motion.svg
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ duration: 0.5, delay: 0.4, type: "spring", stiffness: 200 }}
-                className="w-5 h-5 text-green-400 flex-shrink-0"
-                fill="currentColor"
-                viewBox="0 0 20 20"
+              <motion.div
+                initial={{ scale: 1 }}
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-blue/90 to-primary-dark/90 backdrop-blur-sm border-2 border-white/30 rounded-full px-4 py-2.5 shadow-lg"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clipRule="evenodd"
-                />
-              </motion.svg>
-              <span className="text-base font-bold text-white uppercase tracking-wide">
-                £30 A MONTH
-              </span>
+                <motion.svg
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4, type: "spring", stiffness: 200 }}
+                  className="w-5 h-5 text-green-400 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </motion.svg>
+                <span className="text-base font-bold text-white uppercase tracking-wide">
+                  £30 A MONTH
+                </span>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          )}
 
-          <motion.h1
-            initial={{ opacity: 1, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-3 md:mb-4 uppercase tracking-tight relative break-words px-2 sm:px-0"
-          >
-            {content.hero.title}
-          </motion.h1>
-          
-          <motion.p
-            initial={{ opacity: 1, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-3 md:mb-4 font-semibold break-words px-3 sm:px-2 md:px-0"
-          >
-            {content.hero.subtitle}
-          </motion.p>
-          
-          <motion.p
-            initial={{ opacity: 1, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0 }}
-            className="text-sm sm:text-base md:text-lg text-neutral-light-grey mb-4 md:mb-6 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4 break-words"
-            style={{ 
-              wordWrap: 'break-word',
-              overflowWrap: 'break-word',
-              hyphens: 'auto'
-            }}
-          >
-            Join our flourishing community which is making thousands daily,
-            <br className="block sm:hidden" />
-            and catered for all skill levels!
-          </motion.p>
+          {isMobile ? (
+            <>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-3 md:mb-4 uppercase tracking-tight relative break-words px-2 sm:px-0">
+                {content.hero.title}
+              </h1>
+              
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-3 md:mb-4 font-semibold break-words px-3 sm:px-2 md:px-0">
+                {content.hero.subtitle}
+              </p>
+              
+              <p
+                className="text-sm sm:text-base md:text-lg text-neutral-light-grey mb-4 md:mb-6 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4 break-words"
+                style={{ 
+                  wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                  hyphens: 'auto'
+                }}
+              >
+                Join our flourishing community which is making thousands daily,
+                <br className="block sm:hidden" />
+                and catered for all skill levels!
+              </p>
+            </>
+          ) : (
+            <>
+              <motion.h1
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0 }}
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-3 md:mb-4 uppercase tracking-tight relative break-words px-2 sm:px-0"
+              >
+                {content.hero.title}
+              </motion.h1>
+              
+              <motion.p
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0 }}
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mb-3 md:mb-4 font-semibold break-words px-3 sm:px-2 md:px-0"
+              >
+                {content.hero.subtitle}
+              </motion.p>
+              
+              <motion.p
+                initial={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0 }}
+                className="text-sm sm:text-base md:text-lg text-neutral-light-grey mb-4 md:mb-6 max-w-3xl mx-auto leading-relaxed px-6 sm:px-4 break-words"
+                style={{ 
+                  wordWrap: 'break-word',
+                  overflowWrap: 'break-word',
+                  hyphens: 'auto'
+                }}
+              >
+                Join our flourishing community which is making thousands daily,
+                <br className="block sm:hidden" />
+                and catered for all skill levels!
+              </motion.p>
+            </>
+          )}
           
           <a
             href={content.hero.subscriptionUrl}
@@ -244,20 +308,28 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, repeat: Infinity, repeatType: "reverse", duration: 2 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1 h-3 bg-white rounded-full mt-2"
-          />
+      {isMobile ? (
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white rounded-full mt-2" />
+          </div>
         </div>
-      </motion.div>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, repeat: Infinity, repeatType: "reverse", duration: 2 }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        >
+          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-1 h-3 bg-white rounded-full mt-2"
+            />
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }
