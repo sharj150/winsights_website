@@ -2,7 +2,7 @@ export const content = {
   hero: {
     title: "WINSIGHTS",
     subtitle: "LEARN THE FINANCIAL MARKETS WITH EASE!",
-    description: `Join our flourishing community which is making thousands daily, and catered for all skill levels!`,
+    description: `Join our flourishing community which is making thousands daily, and catered to all skill levels!`,
     cta: "Join Now",
     subscriptionUrl: "https://buy.stripe.com/aEU9AVdWd7GU4iAaEM",
   },
@@ -44,7 +44,7 @@ export const content = {
     {
       name: "Berkay",
       age: 20,
-      content: "After joining Winsights I've learned a lot more about the crypto and trading space with a lot of helpful and insightful information. The community and help you get from everyone is unmatched and any question you ask is given a clear and useful response. I started off by spot buying into a coin called ONDO and in a matter of months I multiplied my money as well With the help of the leverage calls I've been able to pay the monthly fee easily. This experience has taught me to be responsible with my money and gain patience as well as meet new friends who are also on the same path to success.",
+      content: "After joining Winsights, I've learned a lot more about the crypto and trading space with a lot of helpful and insightful information. The community and help you get from everyone is unmatched and any question you ask is given a clear and useful response. I started off by spot buying into a coin called ONDO and in a matter of months I multiplied my money as well. With the help of the leverage calls, I've been able to pay the monthly fee easily. This experience has taught me to be responsible with my money and gain patience as well as meet new friends who are also on the same path to success.",
       rating: 5,
     },
     {
@@ -56,7 +56,7 @@ export const content = {
     {
       name: "Haruun",
       age: 21,
-      content: "Prior to joining Winsights, I had little to no knowledge of fundamentals in forex & crypto, I've now been in the group for almost 2 years and I'm glad to say my knowledge has expanded whether it's from directly asking questions or soaking in knowledge from members, the group offers simple yet effective videos such as crypto outlooks which really helped with my understanding, this group is far from just a signal service group & for the price, it's stupid not to join!",
+      content: "Prior to joining Winsights, I had little to no knowledge of fundamentals in forex & crypto. I've now been in the group for almost 2 years and I'm glad to say my knowledge has expanded whether it's from directly asking questions or soaking in knowledge from members. The group offers simple yet effective videos such as crypto outlooks which really helped with my understanding. This group is far from just a signal service group & for the price, it's stupid not to join!",
       rating: 5,
     },
     {
@@ -68,7 +68,7 @@ export const content = {
     {
       name: "Hussain",
       age: 24,
-      content: "Was proper skint as a student, started with like £50. Admins were absolute legends showing me how to start small and not be an idiot. Uni's useless for real money knowledge, compound interest, leverage, all that. Crypto lot taught me yield farming and staking stuff, now making money doing nothing. That £50's now £800+ and I actually know what I'm doing with money.",
+      content: "I was proper skint as a student, started with like £50. Admins were absolute legends showing me how to start small and not be an idiot. Uni's useless for real money knowledge, compound interest, leverage, all that. Crypto lot taught me yield farming and staking stuff, now making money doing nothing. That £50's now £800+ and I actually know what I'm doing with money.",
       rating: 5,
     },
     {
@@ -80,37 +80,37 @@ export const content = {
     {
       name: "Djamal",
       age: 23,
-      content: "Over the past year, we have been assisted with trading and portfolio management. From forex to crypto and meme coins. All are very easy to do with the guides provided by the admins. At the beginning of every week, we are given the breakdown of News events that will occur, plus a breakdown of how the my will play out. This is extremely important for me as I trade forex mainly. I started trading memecoins 3 months ago and at the beginning of my journey, I was absolutely clueless about how to buy and sell these volatile coins. With the help of the admin's guides and also with the help of the chat, which includes 100+ other members, j was able to get on the right track and download the right apps in order to make money. My overall experience with Winsights has been amazing and the calls will forever assist me in managing my portfolio with a consistent capital gain.",
+      content: "Over the past year, we have been assisted with trading and portfolio management. From forex to crypto and meme coins. All are very easy to do with the guides provided by the admins. At the beginning of every week, we are given the breakdown of news events that will occur, plus a breakdown of how they will play out. This is extremely important for me as I trade forex mainly. I started trading memecoins 3 months ago and at the beginning of my journey, I was absolutely clueless about how to buy and sell these volatile coins. With the help of the admin's guides and also with the help of the chat, which includes 100+ other members, I was able to get on the right track and download the right apps in order to make money. My overall experience with Winsights has been amazing and the calls will forever assist me in managing my portfolio with a consistent capital gain.",
       rating: 5,
     },
     {
       name: "Hassan",
       age: 18,
-      content: "Winsights was very helpful it allowed me to minimize time, effort, and incurring losses as I relied upon the expertise of the team. In both forex and crypto, they make great calls but for me particularly I made use of the the frequent and accurate XAUUSD signals which even a beginner could make good money off.",
+      content: "Winsights was very helpful. It allowed me to minimize time, effort, and incurring losses as I relied upon the expertise of the team. In both forex and crypto, they make great calls but for me particularly I made use of the frequent and accurate XAUUSD signals which even a beginner could make good money off.",
       rating: 5,
     },
     {
       name: "Kiran",
       age: 22,
-      content: "Winsights helped me improve my knowledge of the market 10x. When I joined I had no idea what I was doing and was consistently losing money. When I joined there was a really good community, plenty of guides and learning available and everyone is very helpful. I had so many questions and they were all answered efficiently and with no judgment no matter how simple the questions were. The trades are laid out clearly and were easy to follow and learn from. Since joining I have become a profitable trader in forex, crypto, and stocks 😊",
+      content: "Winsights helped me improve my knowledge of the market 10x. When I joined, I had no idea what I was doing and was consistently losing money. When I joined, there was a really good community, plenty of guides and learning available and everyone is very helpful. I had so many questions and they were all answered efficiently and with no judgment no matter how simple the questions were. The trades are laid out clearly and were easy to follow and learn from. Since joining, I have become a profitable trader in forex, crypto, and stocks 😊",
       rating: 5,
     },
     {
       name: "Kristen",
       age: 23,
-      content: "Joining Winsights has been one of the best decisions I've made when it comes to trading. Upon first starting in May, I was intrigued by forex but had 0 knowledge of how it worked, luckily for me 11 NCS featured beginners guides and I was able to 5x my original investment from putting £100 in to start in 4 weeks. Moreover, within two months I have now passed a funded account which was recommended by the group so as to not risk my own capital/obtain higher positions. The group is very helpful and is full of people of all abilities available at every hour of the day, it speaks to the group prosperity that some people who were initially beginners help out other members now and have managed to become self-reliant with respect to forex using their own analysis and acquired knowledge to garner significant profits. More important than how much I've made is learning key skills such as discipline within management and how certain news impacts the prices of commodities. This helps me understand why I have made a profit within my trade and reduce potential losses as not all trades will be winners, as opposed to blindly relying on signals without actually learning the reasons behind a trade.",
+      content: "Joining Winsights has been one of the best decisions I've made when it comes to trading. Upon first starting in May, I was intrigued by forex but had 0 knowledge of how it worked. Luckily for me, Winsights featured beginners guides and I was able to 5x my original investment from putting £100 in to start in 4 weeks. Moreover, within two months I have now passed a funded account which was recommended by the group so as to not risk my own capital/obtain higher positions. The group is very helpful and is full of people of all abilities available at every hour of the day. It speaks to the group prosperity that some people who were initially beginners help out other members now and have managed to become self-reliant with respect to forex using their own analysis and acquired knowledge to garner significant profits. More important than how much I've made is learning key skills such as discipline within management and how certain news impacts the prices of commodities. This helps me understand why I have made a profit within my trade and reduce potential losses as not all trades will be winners, as opposed to blindly relying on signals without actually learning the reasons behind a trade.",
       rating: 5,
     },
     {
       name: "Huzaifah",
       age: 19,
-      content: "Joined a couple months ago and I was surprised as I didn't know that this group could be as good as it is. The community is great and very active and have now passed two funded accounts because of the accurate signals from the team. This is not to mention the very active crypto side of the group aswell where once again people of all levels of knowledge and financial prowess can succeed, with variance of risk tolerance. I could not recommend the group enough to others and am looking: forward to continuity and growth as I go forth and progress in my own journey.",
+      content: "Joined a couple months ago and I was surprised as I didn't know that this group could be as good as it is. The community is great and very active and have now passed two funded accounts because of the accurate signals from the team. This is not to mention the very active crypto side of the group as well where once again people of all levels of knowledge and financial prowess can succeed, with variance of risk tolerance. I could not recommend the group enough to others and am looking forward to continuity and growth as I go forth and progress in my own journey.",
       rating: 5,
     },
     {
       name: "Rehan",
       age: 21,
-      content: "Winsights has allowed me to increase my knowledge in worldly affairs and general trading including crypto, stocks, and forex. With in-depth analysis and guides, I have been able to make thousands from just a simple click of a button. Aside from that the owners have built an amazing community with support across the board and the chance to Network with like-minded people. Markets CS has also run fundraisers for those in need to allow members to give back with the profits made from the frequent trades admins have posted. Could not recommend enough!",
+      content: "Winsights has allowed me to increase my knowledge in worldly affairs and general trading including crypto, stocks, and forex. With in-depth analysis and guides, I have been able to make thousands from just a simple click of a button. Aside from that, the owners have built an amazing community with support across the board and the chance to network with like-minded people. Markets CS has also run fundraisers for those in need to allow members to give back with the profits made from the frequent trades admins have posted. Could not recommend enough!",
       rating: 5,
     },
   ],
@@ -120,20 +120,20 @@ export const content = {
       answer: "The group is £30 per month as we believe in a low barrier to entry to learning a skill like trading! We want everyone to be able to learn and capitalise no matter their current wealth status. It is designed for you to leave it.",
     },
     {
-      question: "Why is the group on Whatsapp?",
-      answer: "We host on Whatsapp mainly due to it's ease, and low barrier of knowledge to use. A lot of new traders have never used Discord before, so to avoid confusion, we use Whatsapp as our main platform, and make it work seamlessly. Discord coming soon, however.",
+      question: "Why is the group on WhatsApp?",
+      answer: "We host on WhatsApp mainly due to its ease and low barrier of knowledge to use. A lot of new traders have never used Discord before, so to avoid confusion, we use WhatsApp as our main platform, and make it work seamlessly. Discord coming soon, however.",
     },
     {
       question: "What markets do you guys trade?",
-      answer: "We trade cryptocurrency, stocks and forex. We do this to give our customers a free selection in how they want to learn and make money!",
+      answer: "We trade cryptocurrency, stocks, and forex. We do this to give our customers a free selection in how they want to learn and make money!",
     },
     {
       question: "What support do you offer?",
-      answer: "We provide in depth guides, 24/7 support, 1:1 mentoring sessions, portfolio management/advice, weekly forex lessons and more!",
+      answer: "We provide in-depth guides, 24/7 support, 1:1 mentoring sessions, portfolio management/advice, weekly forex lessons, and more!",
     },
     {
       question: "Will I make money?",
-      answer: "We try and make sure it is seamless for you to make money, while also learning, with indepth signals, while also teaching you why the trade played out.",
+      answer: "We try and make sure it is seamless for you to make money, while also learning, with in-depth signals, while also teaching you why the trade played out.",
     },
   ],
   howItWorks: {
@@ -164,7 +164,7 @@ export const content = {
       },
       {
         title: "Easy to use",
-        description: "We host our group on Whatsapp, so no need to learn about pesky little Discord or any other platform. We have you covered with everything, on the app you use most.",
+        description: "We host our group on WhatsApp, so no need to learn about pesky little Discord or any other platform. We have you covered with everything, on the app you use most.",
         icon: "devices",
       },
       {
@@ -254,19 +254,19 @@ export const content = {
     cards: [
       {
         title: "CRYPTO",
-        description: "Crypto is a scam? We've heard that too, How would you feel if you learned what cryptocurrency was before you invested? That's exactly What we do at Winsights, we prioritize knowledge first, so you can learn, earn, and be comfortable with what you invest in.",
+        description: "Crypto is a scam? We've heard that too. How would you feel if you learned what cryptocurrency was before you invested? That's exactly what we do at Winsights. We prioritize knowledge first, so you can learn, earn, and be comfortable with what you invest in.",
         buttonText: "TRADE CRYPTO!",
         buttonUrl: "https://buy.stripe.com/aEU9AVdWd7GU4iAaEM",
       },
       {
         title: "STOCKS",
-        description: "Our in-house stock market specialists, always know what narratives to catch, and when to invest, and also provide portfolio management. Not only options, and futures, but ISA help too! Did I mention we trade earnings too, with detailed reports?",
+        description: "Our in-house stock market specialists always know what narratives to catch and when to invest, and also provide portfolio management. Not only options and futures, but ISA help too! Did I mention we trade earnings too, with detailed reports?",
         buttonText: "TRADE STOCKS!",
         buttonUrl: "https://buy.stripe.com/aEU9AVdWd7GU4iAaEM",
       },
       {
         title: "FOREX",
-        description: "Forex is the most lucrative of them all! Dive into a world of earning and learning. With Our economic experts in the group, we are able to predict the market moves during big economic data prints, as well as perfecting trades for all currency pairs!",
+        description: "Forex is the most lucrative of them all! Dive into a world of earning and learning. With our economic experts in the group, we are able to predict the market moves during big economic data prints, as well as perfecting trades for all currency pairs!",
         buttonText: "TRADE FOREX!",
         buttonUrl: "https://buy.stripe.com/aEU9AVdWd7GU4iAaEM",
       },

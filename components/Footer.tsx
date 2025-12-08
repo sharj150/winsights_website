@@ -52,7 +52,7 @@ export default function Footer() {
               </motion.div>
             )}
             <p className="text-neutral-light-grey text-sm mb-6">
-              Join our flourishing community which is making thousands daily, catered for all skill levels! We believe in learning and earning, we want you to learn, and then understand why you&apos;re earning!
+              Join our flourishing community which is making thousands daily, catered to all skill levels! We believe in learning and earning. We want you to learn, and then understand why you&apos;re earning!
             </p>
             {/* Social Media Icons */}
             <div className="flex items-center space-x-4">
@@ -77,7 +77,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="hhttps://www.tiktok.com/@winsights.markets"
+                href="https://www.tiktok.com/@winsights.markets"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border-2 border-primary-blue bg-white flex items-center justify-center hover:bg-primary-blue transition-colors"

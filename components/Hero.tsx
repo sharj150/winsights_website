@@ -152,7 +152,7 @@ export default function Hero() {
               >
                 Join our flourishing community which is making thousands daily,
                 <br className="block sm:hidden" />
-                and catered for all skill levels!
+                and catered to all skill levels!
               </p>
             </>
           ) : (
@@ -188,7 +188,7 @@ export default function Hero() {
               >
                 Join our flourishing community which is making thousands daily,
                 <br className="block sm:hidden" />
-                and catered for all skill levels!
+                and catered to all skill levels!
               </motion.p>
             </>
           )}
