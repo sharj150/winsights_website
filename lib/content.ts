@@ -4,13 +4,13 @@ export const content = {
     subtitle: "LEARN THE FINANCIAL MARKETS WITH EASE!",
     description: `Join our flourishing community which is making thousands daily, and catered to all skill levels!`,
     cta: "Join Now",
-    subscriptionUrl: "https://buy.stripe.com/aEU9AVdWd7GU4iAaEM",
+    subscriptionUrl: "https://buy.stripe.com/3cI9AS9wmeEl6o3d0m9R60e",
   },
   whoWeAre: {
     title: "Why WINSIGHTS?",
     description: "Our signals, your education, your profits",
-    mainContent: "At Winsights, we cater to all skill levels from complete novices to full-time funded traders. For £30 a month, you get 1:1 support, 24/7 help, 96% win rate signals, and an incredible community! We provide market-leading insights with daily analysis and real-time alerts, comprehensive macro research reports, and educational guides covering beginner to expert levels, ensuring every member builds a foundation for long-term trading success.",
-    price: "£30",
+    mainContent: "At Winsights, we cater to all skill levels from complete novices to full-time funded traders. For £50 a month, you get 1:1 support, 24/7 help, 96% win rate signals, and an incredible community! We provide market-leading insights with daily analysis and real-time alerts, comprehensive macro research reports, and educational guides covering beginner to expert levels, ensuring every member builds a foundation for long-term trading success.",
+    price: "£50",
     pricePeriod: "a month",
     features: [
       {
@@ -37,7 +37,7 @@ export const content = {
       { value: "400+", label: "TRADERS" },
       { value: "89.6%", label: "WINRATE IN ALL MARKETS" },
       { value: "£3M+", label: "GROUP PROFIT" },
-      { value: "£30", label: "PER MONTH ONLY" },
+      { value: "£50", label: "PER MONTH ONLY" },
     ],
   },
   testimonials: [
@@ -117,7 +117,7 @@ export const content = {
   faq: [
     {
       question: "Why is the group so cheap?",
-      answer: "The group is £30 per month as we believe in a low barrier to entry to learning a skill like trading! We want everyone to be able to learn and capitalise no matter their current wealth status. It is designed for you to leave it.",
+      answer: "The group is £50 per month as we believe in a low barrier to entry to learning a skill like trading! We want everyone to be able to learn and capitalise no matter their current wealth status. It is designed for you to leave it.",
     },
     {
       question: "Why is the group on WhatsApp?",
@@ -256,19 +256,19 @@ export const content = {
         title: "CRYPTO",
         description: "Crypto is a scam? We've heard that too. How would you feel if you learned what cryptocurrency was before you invested? That's exactly what we do at Winsights. We prioritize knowledge first, so you can learn, earn, and be comfortable with what you invest in.",
         buttonText: "TRADE CRYPTO!",
-        buttonUrl: "https://buy.stripe.com/aEU9AVdWd7GU4iAaEM",
+        buttonUrl: "https://buy.stripe.com/3cI9AS9wmeEl6o3d0m9R60e",
       },
       {
         title: "STOCKS",
         description: "Our in-house stock market specialists always know what narratives to catch and when to invest, and also provide portfolio management. Not only options and futures, but ISA help too! Did I mention we trade earnings too, with detailed reports?",
         buttonText: "TRADE STOCKS!",
-        buttonUrl: "https://buy.stripe.com/aEU9AVdWd7GU4iAaEM",
+        buttonUrl: "https://buy.stripe.com/3cI9AS9wmeEl6o3d0m9R60e",
       },
       {
         title: "FOREX",
         description: "Forex is the most lucrative of them all! Dive into a world of earning and learning. With our economic experts in the group, we are able to predict the market moves during big economic data prints, as well as perfecting trades for all currency pairs!",
         buttonText: "TRADE FOREX!",
-        buttonUrl: "https://buy.stripe.com/aEU9AVdWd7GU4iAaEM",
+        buttonUrl: "https://buy.stripe.com/3cI9AS9wmeEl6o3d0m9R60e",
       },
     ],
   },

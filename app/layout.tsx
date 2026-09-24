@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: "WINSIGHTS - The number 1 UK trading group",
     template: "%s | WINSIGHTS",
   },
-  description: "The number 1 UK trading group. Join our flourishing community making thousands daily. £30/month for 24/7 support, 96% win rate signals, and comprehensive trading education.",
+  description: "The number 1 UK trading group. Join our flourishing community making thousands daily. £50/month for 24/7 support, 96% win rate signals, and comprehensive trading education.",
   keywords: [
     "UK trading group",
     "trading signals",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     url: "https://winsights.info",
     siteName: "WINSIGHTS",
     title: "WINSIGHTS - The number 1 UK trading group",
-    description: "The number 1 UK trading group. Join our flourishing community making thousands daily. £30/month for 24/7 support, 96% win rate signals, and comprehensive trading education.",
+    description: "The number 1 UK trading group. Join our flourishing community making thousands daily. £50/month for 24/7 support, 96% win rate signals, and comprehensive trading education.",
     images: [
       {
         url: "/og-image.jpg",
@@ -111,7 +111,7 @@ export default function RootLayout({
               },
               offers: {
                 "@type": "Offer",
-                price: "30",
+                price: "50",
                 priceCurrency: "GBP",
                 availability: "https://schema.org/InStock",
                 description: "Monthly subscription to WINSIGHTS trading group",

@@ -13,7 +13,7 @@ export default function Pricing() {
 
   const plans = {
     monthly: {
-      price: "£30",
+      price: "£50",
       period: "/month",
       description: "Perfect for getting started. Access all features with flexible monthly payments.",
       savings: null,
@@ -28,27 +28,27 @@ export default function Pricing() {
       ],
     },
     quarterly: {
-      price: "£75",
+      price: "£100",
       period: "/quarter",
       description: "Save money with our quarterly plan.",
-      savings: "SAVE 20%",
-      subscriptionUrl: "https://buy.stripe.com/28E8wO6kafIph2Hd0m9R60d",
+      savings: "SAVE 33%",
+      subscriptionUrl: "https://buy.stripe.com/8x200i6ka0Nv7s71hE9R60g",
       features: [
         "Everything in Monthly",
-        "20% discount",
+        "33% discount",
         "Priority support",
         "Quarterly portfolio review",
       ],
     },
     annually: {
-      price: "£300",
+      price: "£450",
       period: "/year",
-      description: "Best value option! Get 12 months for the price of 10—that's 2 months completely free!",
-      savings: "2 MONTHS FREE",
-      subscriptionUrl: "https://buy.stripe.com/cNi4gy6kaao5fYD8K69R60b",
+      description: "Best value option! Get 12 months for the price of 9—that's 3 months completely free!",
+      savings: "3 MONTHS FREE",
+      subscriptionUrl: "https://buy.stripe.com/00waEW37YeElcMr1hE9R60h",
       features: [
         "Everything in Quarterly",
-        "2 months free",
+        "3 months free",
         "Highest priority support",
         "Monthly portfolio reviews",
       ],

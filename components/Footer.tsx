@@ -57,7 +57,7 @@ export default function Footer() {
             {/* Social Media Icons */}
             <div className="flex items-center space-x-4">
               <a
-                href="https://instagram.com/winsightsmarkets/"
+                href="https://instagram.com/joinwinsights/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border-2 border-primary-blue bg-white flex items-center justify-center hover:bg-primary-blue transition-colors"
@@ -67,7 +67,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://x.com/winsightsmarkets"
+                href="https://x.com/joinwinsights"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border-2 border-primary-blue bg-white flex items-center justify-center hover:bg-primary-blue transition-colors"
@@ -77,7 +77,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.tiktok.com/@winsights.markets"
+                href="https://www.tiktok.com/@joinwinsights"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border-2 border-primary-blue bg-white flex items-center justify-center hover:bg-primary-blue transition-colors"

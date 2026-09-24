@@ -30,14 +30,14 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 pt-20 md:pt-32 lg:pt-40 pb-6 md:pb-8">
         <div className="text-center relative w-full overflow-x-hidden">
-          {/* £30 Badge - Creative floating badge - Mobile Optimized */}
+          {/* £50 Badge - Creative floating badge - Mobile Optimized */}
           {isMobile ? (
             <div className="absolute top-4 md:top-6 lg:top-8 right-2 md:right-4 lg:right-8 xl:right-16">
               <div className="relative">
                 <div className="bg-primary-dark/80 backdrop-blur-sm border border-neutral-light-grey/30 px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-lg shadow-lg">
                   <div className="flex items-baseline gap-1">
                     <span className="text-white text-lg md:text-xl lg:text-2xl font-bold">
-                      £30
+                      £50
                     </span>
                     <span className="text-white/80 text-xs md:text-sm lg:text-base font-medium">
                       /month
@@ -67,7 +67,7 @@ export default function Hero() {
                 <div className="bg-primary-dark/80 backdrop-blur-sm border border-neutral-light-grey/30 px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-lg shadow-lg">
                   <div className="flex items-baseline gap-1">
                     <span className="text-white text-lg md:text-xl lg:text-2xl font-bold">
-                      £30
+                      £50
                     </span>
                     <span className="text-white/80 text-xs md:text-sm lg:text-base font-medium">
                       /month
@@ -78,7 +78,7 @@ export default function Hero() {
             </motion.div>
           )}
 
-          {/* Mobile Only: JUST £30 A MONTH! */}
+          {/* Mobile Only: JUST £50 A MONTH! */}
           {isMobile ? (
             <div className="block sm:hidden mb-4">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-blue/90 to-primary-dark/90 backdrop-blur-sm border-2 border-white/30 rounded-full px-4 py-2.5 shadow-lg">
@@ -94,7 +94,7 @@ export default function Hero() {
                   />
                 </svg>
                 <span className="text-base font-bold text-white uppercase tracking-wide">
-                  £30 A MONTH
+                  £50 A MONTH
                 </span>
               </div>
             </div>
@@ -126,7 +126,7 @@ export default function Hero() {
                   />
                 </motion.svg>
                 <span className="text-base font-bold text-white uppercase tracking-wide">
-                  £30 A MONTH
+                  £50 A MONTH
                 </span>
               </motion.div>
             </motion.div>
