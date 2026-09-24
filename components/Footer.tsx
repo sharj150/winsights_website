@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function Footer() {
@@ -51,9 +52,6 @@ export default function Footer() {
                 />
               </motion.div>
             )}
-            <p className="text-neutral-light-grey text-sm mb-6">
-              Join our flourishing community which is making thousands daily, catered to all skill levels! We believe in learning and earning. We want you to learn, and then understand why you&apos;re earning!
-            </p>
             {/* Social Media Icons */}
             <div className="flex items-center space-x-4">
               <a
@@ -157,7 +155,7 @@ export default function Footer() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span>admin@winsights.info</span>
+                <span>winsights@winsightsmarkets.com</span>
               </li>
             </ul>
           </div>
@@ -166,6 +164,21 @@ export default function Footer() {
 
         {/* Separator and Copyright */}
         <div className="border-t border-blue-300 border-opacity-30 pt-8 mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mb-3">
+            <Link
+              href="/terms"
+              className="text-neutral-light-grey hover:text-white transition-colors text-sm"
+            >
+              Terms of Service
+            </Link>
+            <span className="hidden sm:inline text-neutral-light-grey/50">•</span>
+            <Link
+              href="/privacy"
+              className="text-neutral-light-grey hover:text-white transition-colors text-sm"
+            >
+              Privacy Policy
+            </Link>
+          </div>
           <p className="text-center text-neutral-light-grey text-sm">
             Copyright© 2025 WINSIGHTS, All rights reserved.
           </p>
