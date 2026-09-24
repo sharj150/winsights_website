@@ -28,14 +28,14 @@ export default function Pricing() {
       ],
     },
     quarterly: {
-      price: "£100",
+      price: "£120",
       period: "/quarter",
       description: "Save money with our quarterly plan.",
-      savings: "SAVE 33%",
+      savings: "SAVE 20%",
       subscriptionUrl: "https://buy.stripe.com/8x200i6ka0Nv7s71hE9R60g",
       features: [
         "Everything in Monthly",
-        "33% discount",
+        "20% discount",
         "Priority support",
         "Quarterly portfolio review",
       ],
