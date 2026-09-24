@@ -41,14 +41,14 @@ export default function Pricing() {
       ],
     },
     annually: {
-      price: "£450",
+      price: "£400",
       period: "/year",
-      description: "Best value option! Get 12 months for the price of 9—that's 3 months completely free!",
-      savings: "3 MONTHS FREE",
+      description: "Best value option! Get 12 months for the price of 8—that's 4 months completely free!",
+      savings: "4 MONTHS FREE",
       subscriptionUrl: "https://buy.stripe.com/00waEW37YeElcMr1hE9R60h",
       features: [
         "Everything in Quarterly",
-        "3 months free",
+        "4 months free",
         "Highest priority support",
         "Monthly portfolio reviews",
       ],
