@@ -28,9 +28,13 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   manifest: "/manifest.json",
   openGraph: {
@@ -92,7 +96,7 @@ export default function RootLayout({
               legalName: "Winsights Group Limited",
               description: "Market research and education for UK investors and traders.",
               url: "https://www.winsightsmarkets.com",
-              logo: "https://www.winsightsmarkets.com/winsights_logo.svg",
+              logo: "https://www.winsightsmarkets.com/icon-512.png",
               email: "winsights@winsightsmarkets.com",
               sameAs: [
                 "https://instagram.com/joinwinsights/",
