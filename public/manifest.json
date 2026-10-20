@@ -1,7 +1,7 @@
 {
-  "name": "WINSIGHTS - The number 1 UK trading group",
-  "short_name": "WINSIGHTS",
-  "description": "The number 1 UK trading group. Join our flourishing community making thousands daily.",
+  "name": "Winsights: Markets made easy",
+  "short_name": "Winsights",
+  "description": "Market research and education for UK investors and traders.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#001470",
@@ -16,4 +16,3 @@
     }
   ]
 }
-

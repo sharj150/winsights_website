@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /preview
 
-Sitemap: https://winsights.info/sitemap.xml
-
+Sitemap: https://www.winsightsmarkets.com/sitemap.xml

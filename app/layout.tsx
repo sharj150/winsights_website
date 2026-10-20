@@ -12,28 +12,16 @@ const leagueSpartan = League_Spartan({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://winsights.info"),
+  metadataBase: new URL("https://www.winsightsmarkets.com"),
   title: {
-    default: "WINSIGHTS - The number 1 UK trading group",
-    template: "%s | WINSIGHTS",
+    default: "Markets made easy | Winsights",
+    template: "%s | Winsights",
   },
-  description: "The number 1 UK trading group. Join our flourishing community making thousands daily. £50/month for 24/7 support, 96% win rate signals, and comprehensive trading education.",
-  keywords: [
-    "UK trading group",
-    "trading signals",
-    "crypto trading",
-    "forex trading",
-    "stock trading",
-    "trading education",
-    "trading community",
-    "UK traders",
-    "trading signals UK",
-    "crypto signals",
-    "forex signals",
-  ],
-  authors: [{ name: "WINSIGHTS" }],
-  creator: "WINSIGHTS",
-  publisher: "WINSIGHTS",
+  description: "Jargon-free market research and education for UK investors and traders. Daily briefings, a live newsfeed to your WhatsApp, a transparent portfolio and 1:1 support. Education only, not financial advice.",
+  applicationName: "Winsights",
+  authors: [{ name: "Winsights" }],
+  creator: "Winsights",
+  publisher: "Winsights Group Limited",
   formatDetection: {
     email: false,
     address: false,
@@ -48,24 +36,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://winsights.info",
-    siteName: "WINSIGHTS",
-    title: "WINSIGHTS - The number 1 UK trading group",
-    description: "The number 1 UK trading group. Join our flourishing community making thousands daily. £50/month for 24/7 support, 96% win rate signals, and comprehensive trading education.",
+    url: "/",
+    siteName: "Winsights",
+    title: "Markets made easy | Winsights",
+    description: "Jargon-free market research and education for UK investors and traders. Daily briefings, a live newsfeed to your WhatsApp, a transparent portfolio and 1:1 support. Education only, not financial advice.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "WINSIGHTS - The number 1 UK trading group",
+        alt: "Winsights: understand the market before you trade it",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "WINSIGHTS - The number 1 UK trading group",
-    description: "The number 1 UK trading group. Join our flourishing community making thousands daily.",
-    images: ["/og-image.jpg"],
+    site: "@joinwinsights",
+    title: "Markets made easy | Winsights",
+    description: "Jargon-free market research and education for UK investors and traders. Daily briefings, a live newsfeed to your WhatsApp, a transparent portfolio and 1:1 support. Education only, not financial advice.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -89,33 +78,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-GB">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="theme-color" content="#001470" />
-        <link rel="canonical" href="https://winsights.info" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "WINSIGHTS",
-              description: "The number 1 UK trading group",
-              url: "https://winsights.info",
-              logo: "https://winsights.info/favicon.svg",
-              sameAs: [],
-              contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "Customer Service",
-              },
-              offers: {
-                "@type": "Offer",
-                price: "50",
-                priceCurrency: "GBP",
-                availability: "https://schema.org/InStock",
-                description: "Monthly subscription to WINSIGHTS trading group",
-              },
+              name: "Winsights",
+              legalName: "Winsights Group Limited",
+              description: "Market research and education for UK investors and traders.",
+              url: "https://www.winsightsmarkets.com",
+              logo: "https://www.winsightsmarkets.com/winsights_logo.svg",
+              email: "winsights@winsightsmarkets.com",
+              sameAs: [
+                "https://instagram.com/joinwinsights/",
+                "https://x.com/joinwinsights",
+                "https://www.tiktok.com/@joinwinsights",
+              ],
             }),
           }}
         />

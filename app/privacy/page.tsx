@@ -3,6 +3,7 @@ import LegalLayout from "@/components/LegalLayout";
 import LegalContent, { type LegalBlock } from "@/components/LegalContent";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy",
   description:
     "Privacy Policy for WINSIGHTS Markets, a trading name of Winsights Group Limited.",
