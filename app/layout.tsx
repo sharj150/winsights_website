@@ -49,7 +49,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Winsights: understand the market before you trade it",
+        alt: "Winsights: understand the market before you invest in it",
       },
     ],
   },
