@@ -181,7 +181,7 @@ const blocks: LegalBlock[] = [
     items: [
       "**Monthly:** £50, billed every month, renews monthly until cancelled.",
       "**Quarterly:** £120, billed every 3 months, renews quarterly until cancelled.",
-      "**Annual:** £450, billed once a year, renews yearly until cancelled.",
+      "**Annual:** £400, billed once a year, renews yearly until cancelled.",
     ],
   },
   {

@@ -32,7 +32,7 @@ export default function Pricing() {
       period: "/quarter",
       description: "Save money with our quarterly plan.",
       savings: "SAVE 20%",
-      subscriptionUrl: "https://buy.stripe.com/8x200i6ka0Nv7s71hE9R60g",
+      subscriptionUrl: "https://buy.stripe.com/eVq3cu4c21Rz7s7gcy9R60n",
       features: [
         "Everything in Monthly",
         "20% discount",
