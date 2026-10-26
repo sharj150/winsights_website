@@ -14,7 +14,7 @@ const caslon = Libre_Caslon_Text({
 const TRIAL_ENABLED = true;
 
 // beehiiv subscribe link for The Weekly Open Desk. The newsletter section shows once this is set.
-const NEWSLETTER_URL = "";
+const NEWSLETTER_URL = "https://winsights.beehiiv.com/subscribe?utm_source=website&utm_medium=homepage";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
