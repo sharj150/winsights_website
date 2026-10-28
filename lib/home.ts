@@ -31,5 +31,19 @@ export function renderHome(file: string): string {
       .split("Start your 7-day free trial").join("Become a member")
       .split("Start free trial").join("Join now");
   }
-  return html;
+  return html + faqSchema(html);
+}
+
+// FAQPage structured data built from the FAQ answers on the page, so it always matches what visitors see.
+function faqSchema(html: string): string {
+  const strip = (x: string) => x.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+  const items: { "@type": string; name: string; acceptedAnswer: { "@type": string; text: string } }[] = [];
+  const re = /<summary[^>]*>([\s\S]*?)<span class="faq-plus"[\s\S]*?<\/summary>\s*<p[^>]*>([\s\S]*?)<\/p>/g;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(html))) {
+    items.push({ "@type": "Question", name: strip(m[1]), acceptedAnswer: { "@type": "Answer", text: strip(m[2]) } });
+  }
+  if (!items.length) return "";
+  const json = JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: items });
+  return `<script type="application/ld+json">${json.replace(/</g, "\\u003c")}</script>`;
 }

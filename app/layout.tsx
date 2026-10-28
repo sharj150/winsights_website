@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { League_Spartan } from "next/font/google";
 import "./globals.css";
-import "./slick-custom.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const leagueSpartan = League_Spartan({
   subsets: ["latin"],
@@ -14,10 +11,10 @@ const leagueSpartan = League_Spartan({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.winsightsmarkets.com"),
   title: {
-    default: "Markets made easy | Winsights",
+    default: "Markets made easy: UK investing and trading education",
     template: "%s | Winsights",
   },
-  description: "Jargon-free market research and education for UK investors and traders. Daily briefings, a live newsfeed to your WhatsApp, a transparent portfolio and 1:1 support. Education only, not financial advice.",
+  description: "Jargon-free market research and education for UK investors and traders. Daily briefings, trade ideas, live news and 1:1 support on WhatsApp. Try 7 days free.",
   applicationName: "Winsights",
   authors: [{ name: "Winsights" }],
   creator: "Winsights",
@@ -42,8 +39,8 @@ export const metadata: Metadata = {
     locale: "en_GB",
     url: "/",
     siteName: "Winsights",
-    title: "Markets made easy | Winsights",
-    description: "Jargon-free market research and education for UK investors and traders. Daily briefings, a live newsfeed to your WhatsApp, a transparent portfolio and 1:1 support. Education only, not financial advice.",
+    title: "Markets made easy: UK investing and trading education",
+    description: "Jargon-free market research and education for UK investors and traders. Daily briefings, trade ideas, live news and 1:1 support on WhatsApp. Try 7 days free.",
     images: [
       {
         url: "/og-image.png",
@@ -56,8 +53,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@joinwinsights",
-    title: "Markets made easy | Winsights",
-    description: "Jargon-free market research and education for UK investors and traders. Daily briefings, a live newsfeed to your WhatsApp, a transparent portfolio and 1:1 support. Education only, not financial advice.",
+    title: "Markets made easy: UK investing and trading education",
+    description: "Jargon-free market research and education for UK investors and traders. Daily briefings, trade ideas, live news and 1:1 support on WhatsApp. Try 7 days free.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -98,11 +95,29 @@ export default function RootLayout({
               url: "https://www.winsightsmarkets.com",
               logo: "https://www.winsightsmarkets.com/icon-512.png",
               email: "winsights@winsightsmarkets.com",
+              founder: {
+                "@type": "Person",
+                name: "Sharjeel Khatri",
+                jobTitle: "Founder",
+              },
               sameAs: [
                 "https://instagram.com/joinwinsights/",
                 "https://x.com/joinwinsights",
                 "https://www.tiktok.com/@joinwinsights",
+                "https://uk.trustpilot.com/review/winsightsmarkets.com",
               ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Winsights",
+              alternateName: ["Winsights Markets", "WINSIGHTS"],
+              url: "https://www.winsightsmarkets.com/",
             }),
           }}
         />
