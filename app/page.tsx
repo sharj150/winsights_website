@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Libre_Caslon_Text } from "next/font/google";
 import { renderHome } from "@/lib/home";
+import CarouselControls from "@/components/CarouselControls";
 
 const caslon = Libre_Caslon_Text({
   subsets: ["latin"],
@@ -14,5 +15,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <main className={caslon.variable} dangerouslySetInnerHTML={{ __html: renderHome("home-v2.html") }} />;
+  return (
+    <>
+      <main className={caslon.variable} dangerouslySetInnerHTML={{ __html: renderHome("home-v2.html") }} />
+      <CarouselControls />
+    </>
+  );
 }
