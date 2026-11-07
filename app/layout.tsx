@@ -91,6 +91,11 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Winsights",
               legalName: "Winsights Group Limited",
+              identifier: {
+                "@type": "PropertyValue",
+                propertyID: "Companies House company number",
+                value: "16813424",
+              },
               description: "Market research and education for UK investors and traders.",
               url: "https://www.winsightsmarkets.com",
               logo: "https://www.winsightsmarkets.com/icon-512.png",
@@ -105,6 +110,7 @@ export default function RootLayout({
                 "https://x.com/joinwinsights",
                 "https://www.tiktok.com/@joinwinsights",
                 "https://uk.trustpilot.com/review/winsightsmarkets.com",
+                "https://find-and-update.company-information.service.gov.uk/company/16813424",
               ],
             }),
           }}
