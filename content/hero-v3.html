@@ -1,0 +1,76 @@
+<style>
+.hx{--navy:#001470;--paper:#F6F5F0;--accent:#F2A93B;--mx:70%;--my:40%;position:relative;min-height:calc(100vh - 36px);min-height:calc(100svh - 36px);background:var(--navy);color:#FFFFFF;overflow:hidden;display:flex;flex-direction:column;isolation:isolate}
+.hx::before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 80% at 60% 40%,#000 40%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 60% 40%,#000 40%,transparent 100%)}
+.hx::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(520px circle at var(--mx) var(--my),rgba(242,169,59,.22),transparent 60%);transition:background .2s}
+.hx-nav{max-width:1240px;width:100%;margin:0 auto;padding:22px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;box-sizing:border-box}
+.hx-nav a{color:#FFFFFF;text-decoration:none}
+.hx-main{flex:1;max-width:1240px;width:100%;margin:0 auto;padding:8px 24px 28px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:center}
+.hx-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#C9CEE6}
+.hx-eyebrow i{width:8px;height:8px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 0 rgba(242,169,59,.7);animation:hxPulse 2s infinite}
+@keyframes hxPulse{0%{box-shadow:0 0 0 0 rgba(242,169,59,.6)}70%{box-shadow:0 0 0 12px rgba(242,169,59,0)}100%{box-shadow:0 0 0 0 rgba(242,169,59,0)}}
+.hx h1{margin:18px 0 0;font-weight:700;font-size:clamp(44px,min(6.4vw,10vh),96px);line-height:.95;letter-spacing:-.035em}
+.hx-cycle{display:inline-block;color:var(--accent);position:relative}
+.hx-cycle span{display:inline-block;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s}
+.hx-cycle.out span{transform:translateY(-40%);opacity:0}
+.hx-cycle.in span{transform:translateY(40%);opacity:0;transition:none}
+.hx-lead{margin:22px 0 0;font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:#D9DCEB;max-width:560px}
+.hx-ctas{margin-top:28px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hx-btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#000A45!important;font-weight:700;font-size:18px;padding:18px 30px;border-radius:999px;box-shadow:0 12px 32px rgba(242,169,59,.35);transition:transform .2s ease,box-shadow .2s}
+.hx-btn:hover{box-shadow:0 16px 40px rgba(242,169,59,.5)}
+.hx-ghost{color:#FFFFFF;font-weight:500;font-size:18px;padding:17px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.45)}
+.hx-ghost:hover{background:rgba(255,255,255,.08)}
+.hx-trust{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:#C9CEE6}
+.hx-trust b{color:var(--accent)}
+.hx-stage{position:relative;height:min(56vh,520px);min-height:360px}
+.hx-stage canvas{position:absolute;inset:0;width:100%;height:100%;border-radius:24px}
+.hx-card{position:absolute;width:min(270px,62%);background:var(--paper);color:#0B1033;border-radius:16px;padding:16px 18px;box-shadow:0 20px 50px rgba(0,5,40,.45);transition:transform .25s ease-out;will-change:transform}
+.hx-card:hover{z-index:2}
+.hx-card-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#464C66}
+.hx-time{color:#001470;font-variant-numeric:tabular-nums}
+.hx-tag{display:inline-flex;align-items:center;gap:6px}
+.hx-tag::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--accent)}
+.hx-card-title{margin-top:10px;font-size:18px;font-weight:700;color:#001470}
+.hx-card-sub{margin-top:2px;font-size:14px;color:#464C66}
+.hx-note{position:absolute;left:14px;top:10px;z-index:3;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.hx-tape{border-top:1px solid rgba(255,255,255,.14);overflow:hidden;white-space:nowrap;position:relative;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.hx-tape-track{display:inline-flex;align-items:center;gap:22px;padding:18px 0;animation:hxTape 48s linear infinite}
+.hx-tape:hover .hx-tape-track{animation-play-state:paused}
+@keyframes hxTape{to{transform:translateX(-50%)}}
+.hx-term{color:#FFFFFF!important;text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.hx-term:hover{color:var(--accent)!important}
+.hx-dot{color:var(--accent);font-size:8px}
+.hx-tape-label{position:absolute;left:0;top:0;bottom:0;z-index:1;display:flex;align-items:center;padding:0 16px;background:var(--navy);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--accent)}
+.hx-scroll{position:absolute;left:50%;bottom:74px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.hx-scroll span{width:2px;height:26px;background:linear-gradient(var(--accent),transparent);animation:hxScroll 1.8s ease-in-out infinite}
+@keyframes hxScroll{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-width:900px){.hx-main{grid-template-columns:1fr;gap:8px;padding-top:12px}.hx-stage{height:340px;min-height:0;order:2}.hx-card{width:min(240px,70%)}.hx-card:nth-child(n+4){display:none}.hx-scroll{display:none}}
+@media (max-width:760px){.hx-navtext{display:none!important}.hx{min-height:calc(100svh - 76px)}}
+@media (prefers-reduced-motion:reduce){.hx-tape-track,.hx-eyebrow i,.hx-scroll span{animation:none}.hx-cycle span{transition:none}}
+</style>
+<header class="hx" id="hx">
+<nav class="hx-nav" aria-label="Main">
+<a href="/" aria-label="Winsights home" style="display: flex; align-items: center; gap: 14px"><img src="/images/v2/logo-mark.png" alt="" style="height: 30px; width: auto; display: block"><span style="font-weight: 700; font-size: 20px; letter-spacing: 0.14em">WINSIGHTS</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 16px; font-weight: 500">
+<a href="#inside" class="hx-navtext">What you get</a><a href="#newsfeed" class="hx-navtext">Newsfeed</a><a href="#day-traders" class="hx-navtext">Day traders</a><a href="#membership" class="hx-navtext">Membership</a><a href="/learn" class="hx-navtext">Learn</a>
+<a href="https://portal.winsightsmarkets.com" style="border: 1px solid rgba(255,255,255,0.5); border-radius: 999px; padding: 10px 18px">Member login</a>
+<a href="#trial" style="color: #001470; background: #FFFFFF; border-radius: 999px; padding: 11px 20px; font-weight: 600">Start free trial</a>
+</div>
+</nav>
+<div class="hx-main">
+<div>
+<div class="hx-eyebrow"><i></i>UK research and education desk</div>
+<h1>Understand the market before you <span class="hx-cycle" id="hx-cycle" aria-live="off"><span>invest in it.</span></span></h1>
+<p class="hx-lead">Winsights makes the markets easy to understand. We explain the news that moves them in plain English, share daily trade and investment ideas, and help you learn as you go, all on WhatsApp and in your own member portal.</p>
+<div class="hx-ctas"><a href="#trial" class="hx-btn" id="hx-magnet">Start your 7-day free trial <span aria-hidden="true">→</span></a><a href="#membership" class="hx-ghost">See plans and prices</a></div>
+<div class="hx-trust"><span><b>★ 4.4</b> on Trustpilot</span><span>7 days free</span><span>Cancel any time</span></div>
+</div>
+<div class="hx-stage" id="hx-stage" aria-hidden="true"><canvas id="hx-canvas"></canvas>
+<div class="hx-card" data-depth="1.6" style="top: 6%; left: 4%"><div class="hx-card-top"><span class="hx-time">13:30</span><span class="hx-tag">Economic data</span></div><div class="hx-card-title">US CPI vs forecast</div><div class="hx-card-sub">What it means for rate cuts</div></div>
+<div class="hx-card" data-depth="2.4" style="top: 30%; right: 0%"><div class="hx-card-top"><span class="hx-time">12:00</span><span class="hx-tag">Central banks</span></div><div class="hx-card-title">Bank of England decision</div><div class="hx-card-sub">With the vote split</div></div>
+<div class="hx-card" data-depth="1.1" style="top: 56%; left: 10%"><div class="hx-card-top"><span class="hx-time">09:41</span><span class="hx-tag">Geopolitics</span></div><div class="hx-card-title">Supply shock lifts oil</div><div class="hx-card-sub">And what it means for inflation</div></div>
+<div class="hx-card" data-depth="2.0" style="top: 78%; right: 8%"><div class="hx-card-top"><span class="hx-time">08:00</span><span class="hx-tag">Morning briefing</span></div><div class="hx-card-title">Today’s trade ideas</div><div class="hx-card-sub">FX, gold and equities setups</div></div>
+<span class="hx-note">Illustrative</span></div>
+</div>
+<div class="hx-scroll" aria-hidden="true">Scroll<span></span></div>
+<div class="hx-tape" aria-label="Market jargon, decoded"><div class="hx-tape-track"><a href="/learn/market-jargon#cpi" class="hx-term">CPI</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#bank-rate" class="hx-term">Bank Rate</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#gilt" class="hx-term">Gilts</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#pip" class="hx-term">Pips</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#leverage" class="hx-term">Leverage</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#isa" class="hx-term">ISA</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#inflation" class="hx-term">Inflation</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#hawkish-and-dovish" class="hx-term">Hawkish & dovish</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#quantitative-easing-qe" class="hx-term">QE</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#non-farm-payrolls-nfp" class="hx-term">Non-farm payrolls</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#stop-loss" class="hx-term">Stop loss</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#etf" class="hx-term">ETF</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#safe-haven" class="hx-term">Safe haven</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#volatility" class="hx-term">Volatility</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#spread" class="hx-term">Spread</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#dividend" class="hx-term">Dividend</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#cpi" class="hx-term">CPI</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#bank-rate" class="hx-term">Bank Rate</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#gilt" class="hx-term">Gilts</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#pip" class="hx-term">Pips</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#leverage" class="hx-term">Leverage</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#isa" class="hx-term">ISA</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#inflation" class="hx-term">Inflation</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#hawkish-and-dovish" class="hx-term">Hawkish & dovish</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#quantitative-easing-qe" class="hx-term">QE</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#non-farm-payrolls-nfp" class="hx-term">Non-farm payrolls</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#stop-loss" class="hx-term">Stop loss</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#etf" class="hx-term">ETF</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#safe-haven" class="hx-term">Safe haven</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#volatility" class="hx-term">Volatility</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#spread" class="hx-term">Spread</a><span class="hx-dot" aria-hidden="true">●</span><a href="/learn/market-jargon#dividend" class="hx-term">Dividend</a><span class="hx-dot" aria-hidden="true">●</span></div></div>
+</header>
