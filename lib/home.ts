@@ -9,7 +9,18 @@ export const NEWSLETTER_URL = "https://winsights.beehiiv.com/subscribe?utm_sourc
 
 // Instagram Reel links for the "Watch" section (e.g. "https://www.instagram.com/reel/ABC123/").
 // Leave empty to show a compact "follow us" band instead of embedded videos.
-export const REELS: string[] = [];
+export const REELS: string[] = [
+  "https://www.instagram.com/reel/DfpSbAfNs7k/",
+  "https://www.instagram.com/reel/DfpOKTXROcz/",
+  "https://www.instagram.com/reel/DfnmZUnKscL/",
+  "https://www.instagram.com/reel/DfnRc8Xx8Zn/",
+  "https://www.instagram.com/reel/Dfm_Y2hxt4H/",
+  "https://www.instagram.com/reel/DflFAdsNqsE/",
+  "https://www.instagram.com/reel/Dfh-mh1RFhw/",
+  "https://www.instagram.com/reel/DfcX_4FoVp2/",
+  "https://www.instagram.com/reel/DfZyi59RVwy/",
+  "https://www.instagram.com/reel/DfYCh8gRb54/",
+];
 
 const read = (file: string) => fs.readFileSync(path.join(process.cwd(), "content", file), "utf8");
 
