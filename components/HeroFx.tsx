@@ -18,10 +18,12 @@ export default function HeroFx() {
       slot.dataset.tvLoaded = "1";
       const wrap = document.createElement("div");
       wrap.className = "tradingview-widget-container";
-      wrap.style.cssText = "height:100%;width:100%";
+      const isChart = slot.id === "hx-tv-chart";
+      // The chart fills its panel; the ticker tape sizes itself, so its rows are never clipped.
+      wrap.style.cssText = isChart ? "height:100%;width:100%" : "width:100%";
       const inner = document.createElement("div");
       inner.className = "tradingview-widget-container__widget";
-      inner.style.cssText = slot.id === "hx-tv-chart" ? "height:calc(100% - 22px);width:100%" : "height:100%;width:100%";
+      inner.style.cssText = isChart ? "height:calc(100% - 22px);width:100%" : "width:100%";
       wrap.appendChild(inner);
       if (slot.id === "hx-tv-chart") {
         const credit = document.createElement("div");
