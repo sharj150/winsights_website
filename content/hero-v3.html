@@ -1,19 +1,13 @@
 <style>
 .hx{--navy:#001470;--deep:#000A45;--paper:#F6F5F0;--accent:#F2A93B;--mx:70%;--my:40%;position:relative;min-height:calc(100vh - 36px);min-height:calc(100svh - 36px);background:radial-gradient(1200px 700px at 80% -10%,#0a2a9e 0%,transparent 60%),linear-gradient(180deg,var(--navy) 0%,var(--deep) 100%);color:#FFFFFF;overflow:hidden;display:flex;flex-direction:column;isolation:isolate}
 .hx-bg{position:absolute;inset:0;z-index:-3;pointer-events:none}
-.hx-grid{position:absolute;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 100%);animation:hxGrid 24s linear infinite}
-@keyframes hxGrid{to{background-position:64px 64px,64px 64px}}
-.hx-blob{position:absolute;z-index:-3;border-radius:50%;filter:blur(80px);opacity:.55;pointer-events:none}
-.hx-blob.a{width:520px;height:520px;background:#F2A93B;opacity:.18;top:-160px;right:-80px;animation:hxBlobA 18s ease-in-out infinite alternate}
-.hx-blob.b{width:620px;height:620px;background:#2f5bff;opacity:.28;bottom:-260px;left:-160px;animation:hxBlobB 22s ease-in-out infinite alternate}
-@keyframes hxBlobA{to{transform:translate(-160px,120px) scale(1.15)}}
-@keyframes hxBlobB{to{transform:translate(180px,-80px) scale(.9)}}
+.hx-grid{position:absolute;inset:0;z-index:-2;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 60% 40%,#000 30%,transparent 100%);}
 .hx-glow{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(560px circle at var(--mx) var(--my),rgba(242,169,59,.18),transparent 60%)}
-.hx-particles{position:absolute;inset:0;z-index:-1;pointer-events:none;width:100%;height:100%}
-.hx-nav{max-width:1240px;width:100%;margin:0 auto;padding:20px 24px 14px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;box-sizing:border-box}
+.hx-bgchart{position:absolute;inset:0;z-index:-2;pointer-events:none;width:100%;height:100%}
+.hx-nav{max-width:1240px;width:100%;margin:0 auto;padding:18px 24px 6px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;box-sizing:border-box}
 .hx-nav a{color:#FFFFFF;text-decoration:none}
-.hx-live{max-width:1240px;width:100%;margin:0 auto;padding:0 24px;box-sizing:border-box}
-.hx-tv-tape{height:46px;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);overflow:hidden}
+.hx-live{width:100%;background:rgba(0,10,69,.55);border-bottom:1px solid rgba(255,255,255,.1)}
+.hx-tv-tape{height:46px;overflow:hidden}
 .hx-main{flex:1;max-width:1240px;width:100%;margin:0 auto;padding:28px 24px 28px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
 .hx-status{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;font-weight:600;letter-spacing:.06em}
 .hx-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#D9DCEB;text-transform:uppercase}
@@ -26,7 +20,7 @@
 @keyframes hxIn{to{opacity:1;transform:none;filter:none}}
 .hx-cycle{display:inline-block;background:linear-gradient(90deg,#F2A93B,#FFD48A,#F2A93B);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:hxSheen 4s linear infinite}
 @keyframes hxSheen{to{background-position:-200% 0}}
-.hx-cycle span{display:inline-block;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .45s,filter .45s}
+.hx-cycle span{display:inline-block;transition:transform .22s cubic-bezier(.2,.8,.2,1),opacity .22s,filter .22s}
 .hx-cycle.out span{transform:translateY(-45%);opacity:0;filter:blur(4px)}
 .hx-cycle.in span{transform:translateY(45%);opacity:0;transition:none}
 .hx-fade{opacity:0;transform:translateY(16px);animation:hxIn .8s cubic-bezier(.2,.8,.2,1) forwards}
@@ -69,7 +63,8 @@
 @media (prefers-reduced-motion:reduce){.hx *,.hx *::before,.hx *::after{animation:none!important;transition:none!important}.hx-w,.hx-fade{opacity:1;transform:none;filter:none}}
 </style>
 <header class="hx" id="hx">
-<div class="hx-blob a" aria-hidden="true"></div><div class="hx-blob b" aria-hidden="true"></div><div class="hx-grid" aria-hidden="true"></div><canvas class="hx-particles" id="hx-particles" aria-hidden="true"></canvas><div class="hx-glow" aria-hidden="true"></div>
+<div class="hx-grid" aria-hidden="true"></div><canvas class="hx-bgchart" id="hx-bgchart" aria-hidden="true"></canvas><div class="hx-glow" aria-hidden="true"></div>
+<div class="hx-live"><div class="hx-tv-tape" id="hx-tv-tape" data-tv-src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" data-tv-config='{"symbols":[{"proName":"OANDA:XAUUSD","title":"Gold"},{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:UKXGBP","title":"FTSE 100"},{"proName":"FX:GBPUSD","title":"GBP/USD"},{"proName":"FX:EURUSD","title":"EUR/USD"},{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"proName":"TVC:USOIL","title":"US oil"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"compact","colorTheme":"dark","locale":"en"}'></div></div>
 <nav class="hx-nav" aria-label="Main">
 <a href="/" aria-label="Winsights home" style="display: flex; align-items: center; gap: 14px"><img src="/images/v2/logo-mark.png" alt="" style="height: 30px; width: auto; display: block"><span style="font-weight: 700; font-size: 20px; letter-spacing: 0.14em">WINSIGHTS</span></a>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 16px; font-weight: 500">
@@ -78,7 +73,6 @@
 <a href="#trial" style="color: #001470; background: #FFFFFF; border-radius: 999px; padding: 11px 20px; font-weight: 600">Start free trial</a>
 </div>
 </nav>
-<div class="hx-live"><div class="hx-tv-tape" id="hx-tv-tape" data-tv-src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" data-tv-config='{"symbols":[{"proName":"OANDA:XAUUSD","title":"Gold"},{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"FOREXCOM:UKXGBP","title":"FTSE 100"},{"proName":"FX:GBPUSD","title":"GBP/USD"},{"proName":"FX:EURUSD","title":"EUR/USD"},{"proName":"FOREXCOM:NSXUSD","title":"Nasdaq 100"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"proName":"TVC:USOIL","title":"US oil"}],"showSymbolLogo":true,"isTransparent":true,"displayMode":"adaptive","colorTheme":"dark","locale":"en"}'></div></div>
 <div class="hx-main">
 <div>
 <div class="hx-status hx-fade" style="animation-delay:.05s"><span class="hx-pill clock" id="hx-clock">London --:--</span><span class="hx-pill" id="hx-lon"><i></i>London</span><span class="hx-pill" id="hx-ny"><i></i>New York</span></div>

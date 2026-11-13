@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 // Interactions for the full-screen hero (content/hero-v3.html): live TradingView widgets,
-// particle field, cursor glow, 3D panel tilt, card parallax, magnetic CTA, cycling headline
+// background price-action line, cursor glow, 3D panel tilt, card parallax, magnetic CTA, cycling headline
 // word and a live London clock with London / New York session status.
 export default function HeroFx() {
   useEffect(() => {
@@ -66,14 +66,10 @@ export default function HeroFx() {
     const cards = Array.from(hero.querySelectorAll<HTMLElement>(".hx-card"));
     const panel = document.getElementById("hx-panel");
     const magnet = document.getElementById("hx-magnet");
-    let px: number | null = null;
-    let py: number | null = null;
     const onMove = (e: PointerEvent) => {
       const r = hero.getBoundingClientRect();
       const x = e.clientX - r.left;
       const y = e.clientY - r.top;
-      px = x;
-      py = y;
       hero.style.setProperty("--mx", `${x}px`);
       hero.style.setProperty("--my", `${y}px`);
       if (reduce) return;
@@ -92,7 +88,6 @@ export default function HeroFx() {
       }
     };
     const onLeave = () => {
-      px = py = null;
       cards.forEach((c) => (c.style.transform = ""));
       if (panel) panel.style.transform = "";
       if (magnet) magnet.style.transform = "";
@@ -119,18 +114,25 @@ export default function HeroFx() {
           cycle.classList.remove("out");
           cycle.classList.add("in");
           requestAnimationFrame(() => requestAnimationFrame(() => cycle.classList.remove("in")));
-        }, 420);
-      }, 2800);
+        }, 200);
+      }, 2000);
       cleanups.push(() => window.clearInterval(t));
     }
 
-    // Particle field that reaches towards the cursor
-    const canvas = document.getElementById("hx-particles") as HTMLCanvasElement | null;
+    // Background price action: a faint, slowly scrolling market line behind the hero
+    const canvas = document.getElementById("hx-bgchart") as HTMLCanvasElement | null;
     const ctx = canvas?.getContext("2d");
-    if (canvas && ctx && !reduce) {
-      type P = { x: number; y: number; vx: number; vy: number; r: number };
-      let w = 0, h = 0, raf = 0, visible = true;
-      let ps: P[] = [];
+    if (canvas && ctx) {
+      const step = 9;
+      let w = 0, h = 0, raf = 0, offset = 0, visible = true;
+      let price = 0.5, trend = 0, pts: number[] = [];
+      const next = () => {
+        if (Math.random() < 0.04) trend = (Math.random() - 0.5) * 0.012;
+        const shock = Math.random() < 0.03 ? (Math.random() - 0.5) * 0.09 : 0;
+        price += trend + (Math.random() - 0.5) * 0.022 + shock + (0.5 - price) * 0.012;
+        price = Math.min(0.92, Math.max(0.08, price));
+        return price;
+      };
       const resize = () => {
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         w = hero.clientWidth;
@@ -138,60 +140,59 @@ export default function HeroFx() {
         canvas.width = w * dpr;
         canvas.height = h * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        const n = Math.min(90, Math.round((w * h) / 16000));
-        ps = Array.from({ length: n }, () => ({
-          x: Math.random() * w,
-          y: Math.random() * h,
-          vx: (Math.random() - 0.5) * 0.35,
-          vy: (Math.random() - 0.5) * 0.35,
-          r: Math.random() * 1.6 + 0.6,
-        }));
+        while (pts.length < Math.ceil(w / step) + 3) pts.push(next());
+      };
+      const top = () => h * 0.28;
+      const span = () => h * 0.55;
+      const yAt = (i: number) => top() + (1 - pts[i]) * span();
+      const draw = () => {
+        ctx.clearRect(0, 0, w, h);
+        const x = (i: number) => i * step - offset;
+        const path = () => {
+          ctx.beginPath();
+          ctx.moveTo(x(0), yAt(0));
+          for (let i = 1; i < pts.length; i++) ctx.lineTo(x(i), yAt(i));
+        };
+        const grad = ctx.createLinearGradient(0, top(), 0, h);
+        grad.addColorStop(0, "rgba(242,169,59,0.10)");
+        grad.addColorStop(1, "rgba(242,169,59,0)");
+        path();
+        ctx.lineTo(x(pts.length - 1), h);
+        ctx.lineTo(x(0), h);
+        ctx.closePath();
+        ctx.fillStyle = grad;
+        ctx.fill();
+        path();
+        ctx.strokeStyle = "rgba(242,169,59,0.32)";
+        ctx.lineWidth = 2;
+        ctx.lineJoin = "round";
+        ctx.stroke();
+        // last price marker
+        const li = pts.length - 2;
+        ctx.setLineDash([3, 6]);
+        ctx.strokeStyle = "rgba(242,169,59,0.22)";
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, yAt(li));
+        ctx.lineTo(w, yAt(li));
+        ctx.stroke();
+        ctx.setLineDash([]);
       };
       const frame = () => {
         if (visible && !document.hidden) {
-          ctx.clearRect(0, 0, w, h);
-          for (const p of ps) {
-            p.x += p.vx;
-            p.y += p.vy;
-            if (p.x < 0 || p.x > w) p.vx *= -1;
-            if (p.y < 0 || p.y > h) p.vy *= -1;
-            if (px !== null && py !== null) {
-              const dx = px - p.x, dy = py - p.y, d = Math.hypot(dx, dy);
-              if (d < 180) {
-                p.x += dx * 0.004;
-                p.y += dy * 0.004;
-                ctx.strokeStyle = `rgba(242,169,59,${(1 - d / 180) * 0.55})`;
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(px, py);
-                ctx.stroke();
-              }
-            }
-            ctx.fillStyle = "rgba(255,255,255,0.55)";
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-            ctx.fill();
+          offset += 0.35;
+          if (offset >= step) {
+            offset -= step;
+            pts.shift();
+            pts.push(next());
           }
-          for (let i = 0; i < ps.length; i++) {
-            for (let j = i + 1; j < ps.length; j++) {
-              const a = ps[i], b = ps[j];
-              const d = Math.hypot(a.x - b.x, a.y - b.y);
-              if (d < 110) {
-                ctx.strokeStyle = `rgba(255,255,255,${(1 - d / 110) * 0.12})`;
-                ctx.lineWidth = 1;
-                ctx.beginPath();
-                ctx.moveTo(a.x, a.y);
-                ctx.lineTo(b.x, b.y);
-                ctx.stroke();
-              }
-            }
-          }
+          draw();
         }
         raf = requestAnimationFrame(frame);
       };
       resize();
-      raf = requestAnimationFrame(frame);
+      draw();
+      if (!reduce) raf = requestAnimationFrame(frame);
       const io = new IntersectionObserver(([en]) => (visible = en.isIntersecting));
       io.observe(hero);
       window.addEventListener("resize", resize);
