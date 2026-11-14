@@ -18,11 +18,16 @@
 .hx h1{margin:22px 0 0;font-weight:700;font-size:clamp(44px,min(6vw,9.5vh),92px);line-height:.96;letter-spacing:-.035em}
 .hx-w{display:inline-block;opacity:0;transform:translateY(40%) rotate(2deg);filter:blur(6px);animation:hxIn .8s cubic-bezier(.2,.8,.2,1) forwards}
 @keyframes hxIn{to{opacity:1;transform:none;filter:none}}
-.hx-cycle{display:inline-block;background:linear-gradient(90deg,#F2A93B,#FFD48A,#F2A93B);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:hxSheen 4s linear infinite}
-@keyframes hxSheen{to{background-position:-200% 0}}
-.hx-cycle span{display:inline-block;transition:transform .22s cubic-bezier(.2,.8,.2,1),opacity .22s,filter .22s}
-.hx-cycle.out span{transform:translateY(-45%);opacity:0;filter:blur(4px)}
-.hx-cycle.in span{transform:translateY(45%);opacity:0;transition:none}
+.hx-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hx-flap{display:flex;gap:.07em;margin-top:.16em;font-size:.6em;letter-spacing:0;perspective:400px}
+.hx-f{position:relative;display:inline-flex;align-items:center;justify-content:center;width:.78em;height:1.12em;border-radius:.11em;background:linear-gradient(180deg,#0f1d63 0%,#0b1652 49.5%,#070f3f 50.5%,#0a1449 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 .06em .14em rgba(0,0,0,.45);overflow:hidden}
+.hx-f::after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:rgba(0,0,0,.65);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.hx-f::before{content:"";position:absolute;top:50%;width:3px;height:.16em;margin-top:-.08em;left:-1px;background:#050b33;border-radius:0 2px 2px 0;box-shadow:calc(.78em - 1px) 0 0 #050b33}
+.hx-fc{display:block;color:#F2A93B;font-weight:700;line-height:1;text-shadow:0 0 .18em rgba(242,169,59,.35);transform-origin:50% 50%}
+.hx-f.blank .hx-fc{color:transparent;text-shadow:none}
+.hx-fc.flip{animation:hxFlip .07s ease-out}
+@keyframes hxFlip{0%{transform:rotateX(-80deg) scaleY(.6);filter:brightness(1.6)}100%{transform:none;filter:none}}
+@media (max-width:760px){.hx-flap{font-size:.62em;gap:.06em}}
 .hx-fade{opacity:0;transform:translateY(16px);animation:hxIn .8s cubic-bezier(.2,.8,.2,1) forwards}
 .hx-lead{margin:24px 0 0;font-size:clamp(17px,1.45vw,20px);line-height:1.55;color:#D9DCEB;max-width:540px}
 .hx-ctas{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
@@ -76,7 +81,7 @@
 <div class="hx-main">
 <div>
 <div class="hx-status hx-fade" style="animation-delay:.05s"><span class="hx-pill clock" id="hx-clock">London --:--</span><span class="hx-pill" id="hx-lon"><i></i>London</span><span class="hx-pill" id="hx-ny"><i></i>New York</span></div>
-<h1><span class="hx-w" style="animation-delay:0.15s">Understand</span> <span class="hx-w" style="animation-delay:0.23s">the</span> <span class="hx-w" style="animation-delay:0.31s">market</span> <span class="hx-w" style="animation-delay:0.39s">before</span> <span class="hx-w" style="animation-delay:0.47s">you</span> <span class="hx-w" style="animation-delay:0.55s"><span class="hx-cycle" id="hx-cycle" aria-live="off"><span>invest in it.</span></span></span></h1>
+<h1><span class="hx-w" style="animation-delay:0.15s">Understand</span> <span class="hx-w" style="animation-delay:0.23s">the</span> <span class="hx-w" style="animation-delay:0.31s">market</span> <span class="hx-w" style="animation-delay:0.39s">before</span> <span class="hx-w" style="animation-delay:0.47s">you</span> <span class="hx-sr">invest in it.</span><span class="hx-w" style="display:block;animation-delay:0.55s" aria-hidden="true"><span class="hx-flap" id="hx-flap"><span class="hx-f"><span class="hx-fc">I</span></span><span class="hx-f"><span class="hx-fc">N</span></span><span class="hx-f"><span class="hx-fc">V</span></span><span class="hx-f"><span class="hx-fc">E</span></span><span class="hx-f"><span class="hx-fc">S</span></span><span class="hx-f"><span class="hx-fc">T</span></span><span class="hx-f blank"><span class="hx-fc">&nbsp;</span></span><span class="hx-f"><span class="hx-fc">I</span></span><span class="hx-f"><span class="hx-fc">N</span></span><span class="hx-f blank"><span class="hx-fc">&nbsp;</span></span><span class="hx-f"><span class="hx-fc">I</span></span><span class="hx-f"><span class="hx-fc">T</span></span><span class="hx-f"><span class="hx-fc">.</span></span></span></span></h1>
 <p class="hx-lead hx-fade" style="animation-delay:.9s">Winsights makes the markets easy to understand. We explain the news that moves them in plain English, share daily trade and investment ideas, and help you learn as you go, all on WhatsApp and in your own member portal.</p>
 <div class="hx-ctas hx-fade" style="animation-delay:1.05s"><a href="#trial" class="hx-btn" id="hx-magnet">Start your 7-day free trial <span aria-hidden="true">→</span></a><a href="#membership" class="hx-ghost">See plans and prices</a></div>
 <div class="hx-trust hx-fade" style="animation-delay:1.2s"><span><b>★ 4.4</b> on Trustpilot</span><span>7 days free</span><span>Cancel any time</span></div>

@@ -101,24 +101,54 @@ export default function HeroFx() {
       hero.removeEventListener("pointerleave", onLeave);
     });
 
-    // Cycling headline ending
-    const cycle = document.getElementById("hx-cycle");
-    const words = ["invest in it.", "trade it.", "buy it.", "sell it."];
-    if (cycle && !reduce) {
-      const span = cycle.querySelector("span");
-      let i = 0;
+    // Split-flap departure board for the headline ending
+    const board = document.getElementById("hx-flap");
+    if (board && !reduce) {
+      const tiles = Array.from(board.querySelectorAll<HTMLElement>(".hx-f"));
+      const n = tiles.length;
+      const words = ["INVEST IN IT.", "TRADE IT.", "BUY IT.", "SELL IT."].map((w) => w.padEnd(n, " "));
+      const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
+      const timers: number[] = [];
+      const setTile = (tile: HTMLElement, ch: string) => {
+        const c = tile.firstElementChild as HTMLElement | null;
+        if (!c) return;
+        tile.classList.toggle("blank", ch === " ");
+        c.textContent = ch === " " ? "\u00a0" : ch;
+        c.classList.remove("flip");
+        void c.offsetWidth;
+        c.classList.add("flip");
+      };
+      let current = words[0];
+      let wi = 0;
+      const flipTo = (target: string) => {
+        tiles.forEach((tile, i) => {
+          const from = current[i];
+          const to = target[i];
+          if (from === to) return;
+          const steps = 5 + Math.floor(Math.random() * 5);
+          let k = 0;
+          const run = () => {
+            if (k < steps) {
+              setTile(tile, charset[Math.floor(Math.random() * charset.length)]);
+              k++;
+              timers.push(window.setTimeout(run, 55));
+            } else {
+              setTile(tile, to);
+            }
+          };
+          timers.push(window.setTimeout(run, i * 30));
+        });
+        current = target;
+      };
       const t = window.setInterval(() => {
-        if (!span) return;
-        cycle.classList.add("out");
-        window.setTimeout(() => {
-          i = (i + 1) % words.length;
-          span.textContent = words[i];
-          cycle.classList.remove("out");
-          cycle.classList.add("in");
-          requestAnimationFrame(() => requestAnimationFrame(() => cycle.classList.remove("in")));
-        }, 200);
-      }, 2000);
-      cleanups.push(() => window.clearInterval(t));
+        if (document.hidden) return;
+        wi = (wi + 1) % words.length;
+        flipTo(words[wi]);
+      }, 2600);
+      cleanups.push(() => {
+        window.clearInterval(t);
+        timers.forEach((x) => window.clearTimeout(x));
+      });
     }
 
     // Background price action: a faint, slowly scrolling market line behind the hero
