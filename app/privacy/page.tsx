@@ -118,6 +118,10 @@ const blocks: LegalBlock[] = [
     type: "p",
     text: "We use essential cookies to keep you logged in and the portal secure; these don't need your consent. We don't use analytics or advertising cookies.",
   },
+  {
+    type: "p",
+    text: "Our website shows live market prices using widgets from TradingView. When a page with these widgets loads, TradingView receives your IP address and browser details and may set its own cookies, under its own privacy policy (https://www.tradingview.com/privacy-policy/). We don't receive any information about you from TradingView.",
+  },
 
   { type: "h2", text: "10. Under-18s" },
   {
@@ -139,7 +143,7 @@ const blocks: LegalBlock[] = [
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="Privacy Policy" lastUpdated="24 September 2026">
+    <LegalLayout title="Privacy Policy" lastUpdated="14 November 2026">
       <LegalContent blocks={blocks} />
     </LegalLayout>
   );

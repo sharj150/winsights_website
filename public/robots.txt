@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /guides/
-Disallow: /preview-landing
 
 Sitemap: https://www.winsightsmarkets.com/sitemap.xml
