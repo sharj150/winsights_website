@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google";
+import { leagueSpartan } from "./brand-fonts";
 import "./globals.css";
-
-const leagueSpartan = League_Spartan({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-league-spartan",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.winsightsmarkets.com"),

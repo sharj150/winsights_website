@@ -1,18 +1,11 @@
 import fs from "fs";
 import path from "path";
 import type { Metadata } from "next";
-import { Libre_Caslon_Text } from "next/font/google";
+import { caslon } from "./brand-fonts";
 import Script from "next/script";
 import { renderHome, REELS } from "@/lib/home";
 import CarouselControls from "@/components/CarouselControls";
 import HeroFx from "@/components/HeroFx";
-
-const caslon = Libre_Caslon_Text({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["normal", "italic"],
-  variable: "--font-caslon",
-});
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Libre_Caslon_Text } from "next/font/google";
+import { caslon } from "../brand-fonts";
 import { StaticPage } from "@/lib/static-page";
-
-const caslon = Libre_Caslon_Text({ subsets: ["latin"], weight: ["400"], variable: "--font-caslon" });
 
 export const metadata: Metadata = {
   title: { absolute: "About Winsights: UK market research and education desk" },
